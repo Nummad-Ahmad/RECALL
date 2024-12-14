@@ -1,7 +1,7 @@
 import style from './app.module.css';
 import Logo from './images/chatbot.jpg';
 import Cartoon from './images/cartoon.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -24,6 +24,7 @@ export default function App() {
             toast.error("Invalid email or password ");
         }
     }
+
     return (
         <div className={style.App}>
         <Toaster />
@@ -40,14 +41,13 @@ export default function App() {
                         </span>
                         <input onChange={handleEmail} className={style.textfield} placeholder='Email' type='email' />
                         <input onChange={handlePassword} className={style.textfield} placeholder='Password' type='password' />
-                        <div style={{ display: 'flex', justifyContent: 'space-between', width: '90%', marginTop: '15px' }}>
+                        <div className={style.signupdiv}>
                             <p className={style.forgetpasswordsignup} onClick={() => { setLogin(!isLogin) }}>
                                 {
                                     (isLogin) ?
                                         'Sign up' : 'Login'
                                 }
                             </p>
-                            {/* <p className={style.forgetpasswordsignup}>Forgot password</p> */}
                         </div>
                         <button className={style.btn} onClick={()=> Navigation()}>
                             {

@@ -11,13 +11,14 @@
 .container{
   height: 100%;
   width: 70%;
+  max-width: 2160px;
   display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
   border-radius: 15px;
 }
-.imgsection{
+/* .imgsection{
   width: 60%;
   height: 100%;
   background-color: rgb(233, 233, 233);
@@ -29,10 +30,11 @@
 }
 .imgsection img{
   width: 90%;
-}
+} */
 .formsection{
   width: 75%;
-  height: 100%;
+  max-width: 1000px;
+  /* height: 100%; */
   margin: 15px 0px; 
   border-radius: 15px;
   background-color: white;
@@ -40,6 +42,7 @@
   box-sizing: border-box;
   display: flex;
   justify-content: center;
+  /* height: 70%; */
 }
 .form{
   width: 80%;
@@ -70,7 +73,7 @@
   border: none;
   cursor: pointer;
   border-radius: 20px;
-  width: 100%;
+  width: 90%;
   height: 40px;
   background-color: rgb(27,29,33);
   /* background-color: rgb(233, 233, 233); */
@@ -80,7 +83,13 @@
 .btn:hover{
   background-color: rgb(20,20,20);
 }
-@media(max-width: 850px){
+.signupdiv{
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin-top: 15px;
+}
+/* @media(max-width: 850px){
   .imgsection{
       display: none;
   }
@@ -88,35 +97,43 @@
       border-radius: 15px;
       width: 100%;
   }
-}
+} */
 
 @media (max-width: 920px) {
   .formsection{
     border-radius: 15px;
     width: 100%;
 }
-  .formDiv {
-      border: none;
-      /* background-color: rgb(240, 240, 240); */
-      box-shadow: none;
-      padding: 10px;
-  }
 }
 
 @media (max-width: 650px) {
-  .imageContainer {
+  /* .imageContainer {
       display: none;
-  }
-  .textContainer {
+  } */
+  /* .textContainer {
       width: 100%;
-      /* background-color: rgba(227, 243, 255, 1); */
       background-color: rgb(156, 212, 255);
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
+  } */
+   .container{
+    width: 85%;
+   }
+  .formsection{
+    width: 100%;
   }
-  .formDiv{
-      margin: auto;
+  .form{
+    width: 100%;
+  }
+  .textfield{
+    width: 100%;
+  }
+  .btn{
+    width: 100%;
+  }
+  .signupdiv{
+    width: 100%;
   }
 }

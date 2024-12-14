@@ -1,20 +1,18 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import style from './homepage.module.css';
-// import axios from 'axios';
 import { MdLightMode } from "react-icons/md";
 import { MdDarkMode } from "react-icons/md";
 import { FaRegArrowAltCircleUp } from "react-icons/fa";
+import { IoMenuSharp } from "react-icons/io5";
+
 
 export default function Home() {
-
-    const [messages, setMessages] = useState([{ type: 'answer', content: 'Hey, how can I help you?' }]);
+    const [clicked, setClicked] = useState(false);
+    const [messages, setMessages] = useState([]);
     const [isOn, setIsOn] = useState(true);
     const [message, setMessage] = useState({
         type: '', content: ''
     });
-    function toggleHandler() {
-        setIsOn(!isOn);
-    }
     function handleKey(e) {
         if (e.key == 'Enter') {
             setMessages([...messages, message]);
@@ -32,24 +30,24 @@ export default function Home() {
         width: '100%',
         display: 'flex',
         backgroundColor: isOn ? 'rgb(27, 29, 33)' : 'white',
-        justifyContent: 'center'
+        justifyContent: 'center',
     }
     const h1Style = {
         margin: '0px',
-        fontSize: '19px',
         fontFamily: 'sans-serif',
+        cursor: 'pointer',
         color: isOn ? 'white' : 'black',
-        cursor: 'pointer'
+        fontSize: '18px'
     }
+
     return (
-        <div style={homeStyle}>
+        <div className={`${!isOn ? style.homelight : style.homedark}`}>
             <div className={style.chat}>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <h1 style={h1Style}>Chat</h1>
-                    <div style={{ display: 'flex', gap: '30px', alignItems: 'center' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <h1 style={h1Style}>Recall</h1>
+                    <div className={style.topmenu}>
                         <h1 style={h1Style}>About</h1>
-                        <h1 style={h1Style}>Upload PDF</h1>
-                        <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                        <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
                             <MdLightMode size={20} color={`${isOn ? 'white' : 'black'}`} />
                             <div className={`${isOn ? style.switchon : style.switchoff}`} onClick={() => setIsOn(!isOn)} >
                                 <div className={`${isOn ? style.ballon : style.balloff}`} onClick={() => setIsOn(!isOn)} />
@@ -59,7 +57,7 @@ export default function Home() {
                     </div>
 
                 </div>
-                <div className={style.chatsection}>
+                <div className={`${!isOn ? style.lightchatsection : style.darkchatsection}`}>
                     <div className={style.messages}>
                         {
                             messages.length > 0 ?
@@ -80,18 +78,18 @@ export default function Home() {
                                 }) :
                                 <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column' }}>
                                     <div style={{ display: 'flex', alignItems: 'start' }}>
-                                        <h1 className={style.recall}>RECALL</h1>
-                                        <p style={{ margin: '0px', color: 'white', fontSize: '12px' }}>Beta</p>
+                                        <h1 className={`${!isOn ? style.darkrecall : style.lightrecall}`}>RECALL</h1>
+                                        <p className={`${isOn ? style.betalight : style.betadark}`}>Beta</p>
                                     </div>
-                                    <p style={{ margin: '0px', color: 'white', fontSize: '12px' }}>By only cells</p>
+                                    <p className={`${!isOn ? style.onlycellsdark : style.onlycellslight }`}>By only cells</p>
                                 </div>
 
                         }
                     </div>
                     <div className={style.inputDiv}>
-                        <input placeholder='Search the guidelines' className={style.input} onChange={(e) => { setMessage({ content: e.target.value, type: 'question' }) }} onKeyDown={handleKey}></input>
+                        <input placeholder='Search the guidelines' className={`${isOn ? style.darkinput : style.lightinput}`} onChange={(e) => { setMessage({ content: e.target.value, type: 'question' }) }} onKeyDown={handleKey}></input>
                         <div onClick={isClicked}>
-                            <FaRegArrowAltCircleUp size={25} color='rgb(200, 200, 200)' />
+                            <FaRegArrowAltCircleUp size={25} color={`${isOn ? 'white' : 'black'}`} />
                         </div>
                     </div>
                 </div>

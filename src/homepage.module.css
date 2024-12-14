@@ -1,9 +1,18 @@
-.home{
+.homelight{
     height: 100vh;
     width: 100%;
     display: flex;
-    background-color: rgb(27, 29, 33);
+    /* background-color: rgb(27, 29, 33); */
     justify-content: center;
+    background-image: url('./images/bg.jpg');
+}
+.homedark{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    /* background-color: rgb(27, 29, 33); */
+    justify-content: center;
+    background-image: url('./images/bgdark.png');
 }
 .citations{
     height: 100%;
@@ -29,15 +38,33 @@
 .chat{
     height: 100%;
     width: 80%;
+    max-width: 1600px;
     padding: 20px;
     box-sizing: border-box;
 }
-.chatsection{
+.h1{
+    font-size: 20px;
+}
+.darkchatsection{
     width: 100%;
     margin: 20px 0px;
-    height: 93%;
+    height: 95%;
     box-sizing: border-box;
     background-color: #474747;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;    
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.lightchatsection{
+    width: 100%;
+    margin: 20px 0px;
+    height: 95%;
+    box-sizing: border-box;
+    background-color: #b3b3b3;
     border-radius: 10px;
     padding: 20px;
     box-sizing: border-box;    
@@ -95,13 +122,21 @@
     align-items: center;
     justify-content: space-between;
 }
-.input{
+.darkinput{
     background-color: #474747;
     border: none;
     width: 100%;
     outline: none;
     color: white;
 }
+.lightinput{
+    background-color: #b3b3b3;
+    border: none;
+    width: 100%;
+    outline: none;
+    color: black;
+}
+
 .input::placeholder {
     font-size: 14px;
     color: rgb(200, 200, 200);  /* Light gray color for placeholder */
@@ -139,15 +174,47 @@
     margin: 0px 2px;
     border-radius: 50%;
 }
-.recall{
+.darkrecall{
+    color: black;
+    margin: 0px;
+    font-size: 35px;
+    font-family: sans-serif;
+}
+.lightrecall{
     color: white;
     margin: 0px;
     font-size: 35px;
     font-family: sans-serif;
 }
+.betalight{
+    margin: 0px;
+    color: white;
+    font-size: 12px;
+}
+.betadark{
+    margin: 0px;
+    color: black;
+    font-size: 12px;
+}
+.onlycellslight{
+    margin: 0px;
+    color: white;
+    font-size: 12px;
+}
+.onlycellsdark{
+    margin: 0px;
+    color: black;
+    font-size: 12px;
+}
+.topmenu{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
 ::-webkit-scrollbar {
-    width: 12px; /* width of the scrollbar */
-    height: 12px; /* height for horizontal scrollbar */
+    width: 8px; /* width of the scrollbar */
+    height: 10px; /* height for horizontal scrollbar */
     margin-left: 30px;
 }
   
@@ -180,6 +247,7 @@
         padding-top: 20px;
         border: none;
         width: 100%;
+        height: 88%;
     }
     .chatsection{        
         margin-bottom: 10px;
@@ -195,5 +263,10 @@
         height: 150px;
         overflow-y: auto;
     } */
-  
+    .topmenu{
+        gap: 10px;
+    }
+    .h1{
+        font-size: 12px;
+    }
 }

@@ -1,20 +1,21 @@
-.homedark{
+.homedark {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     margin: 0px;
     display: flex;
     flex-direction: column;
     background-color: rgba(17, 24, 38, 1);
 }
-.homelight{
+
+.homelight {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     margin: 0px;
     display: flex;
     flex-direction: column;
     background-color: rgb(220, 220, 220);
 }
-.navbardark{
+.navbardark {
     display: flex;
     height: 70px;
     padding: 0px 50px;
@@ -23,7 +24,8 @@
     background-color: rgba(17, 24, 38, 1);
     color: white;
 }
-.navbarlight{
+
+.navbarlight {
     display: flex;
     height: 70px;
     padding: 0px 50px;
@@ -31,4 +33,184 @@
     align-items: center;
     background-color: rgb(220, 220, 220);
     color: black;
+}
+
+.hero {
+    height: 300px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    gap: 20px;
+}
+
+.heroheadinglight {
+    margin: 0px;
+    font-size: 35px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: black;
+}
+
+.heroheadingdark {
+    margin: 0px;
+    font-size: 35px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: white;
+}
+
+.herotextlight {
+    margin: 0px;
+    font-size: 20px;
+    font-family: sans-serif;
+    color: black;
+}
+
+.herotextdark {
+    margin: 0px;
+    font-size: 20px;
+    font-family: sans-serif;
+    color: white;
+}
+
+.bluediv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 170px;
+    border-radius: 10px;
+    color: white;
+    font-family: sans-serif;
+    background-color: rgb(55, 130, 241);
+    cursor: pointer;
+}
+
+.whitedivlight {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 170px;
+    border-radius: 10px;
+    color: black;
+    font-family: sans-serif;
+    border: 1px solid rgb(55, 130, 241);
+}
+
+.whitedivdark {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 170px;
+    border-radius: 10px;
+    color: white;
+    font-family: sans-serif;
+    border: 1px solid rgb(55, 130, 241);
+}
+
+.introlight {
+    width: 60%;
+    height: 300px;
+    margin: 0px auto;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    gap: 20px;
+}
+
+.introdark {
+    width: 60%;
+    height: 200px;
+    margin: 0px auto;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    gap: 20px;
+}
+
+.question {
+    margin: 0px;
+    font-size: 25px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.answer {
+    margin: 0px;
+    font-size: 19px;
+    text-align: center;
+    font-family: sans-serif;
+    line-height: 25px;
+}
+
+.whychooseustextlight {
+    margin: 0px;
+    font-size: 25px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+}
+
+.whychooseustextdark {
+    margin: 0px;
+    font-size: 25px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+.whychooseus {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 40px;
+    padding-top: 0px;
+    box-sizing: border-box;
+    gap: 10px;
+    margin-top: 50px;
+}
+.advantagelight{
+    width: 100%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 10px;
+    margin-right: 10px;
+    box-sizing: border-box;
+    background-color: rgba(31, 41, 54, 0.3);
+    color: black;
+}
+.advantagedark{
+    width: 100%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    margin-right: 10px;
+    box-sizing: border-box;
+    background-color: rgb(31, 41, 54);
+    color: white;
+}
+.icondiv{
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(219, 234, 253);
+    border-radius: 50%;
 }

@@ -3,16 +3,17 @@ import App from './App';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './homepage';
-import { Toaster } from 'react-hot-toast';
+import Chat from './chat';
+import Home from './home';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Router>
     <Routes>
     {/* <Toaster /> */}
-      <Route path='/' element={<App/>}></Route>
-      <Route path='/home' element={<Home/>}></Route>
+      <Route path='/' element={<Home/>}/>
+      <Route path='/login' element={<App/>}></Route>
+      <Route path='/chat' element={<Chat/>}></Route>
     </Routes>
   </Router>
 );

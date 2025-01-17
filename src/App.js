@@ -1,9 +1,8 @@
 import style from './app.module.css';
 import Logo from './images/chatbot.jpg';
-import Cartoon from './images/cartoon.png';
-import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
+import { useState } from 'react';
 
 export default function App() {
     const [email, setEmail] = useState('');

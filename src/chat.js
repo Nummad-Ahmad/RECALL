@@ -123,13 +123,13 @@
 
 
 import { useState } from 'react';
-import style from './homepage.module.css';
+import style from './chat.module.css';
 import { MdLightMode } from "react-icons/md";
 import { MdDarkMode } from "react-icons/md";
 import { FaRegArrowAltCircleUp } from "react-icons/fa";
 import axios from 'axios';
 
-export default function Home() {
+export default function Chat() {
     const url = 'https://chat.botpress.cloud/f1984cf2-0a55-4199-9e76-f6a6e2fc36b5/conversations/convo-1/messages';
     const options = { method: 'GET', headers: { accept: 'application/json', 'x-user-key': 'Nummad1' } };
 

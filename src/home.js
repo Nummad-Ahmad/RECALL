@@ -66,7 +66,7 @@ export default function Home() {
                         <p style={{cursor: 'pointer'}} onClick={()=> {navigate('/chat'); setClicked(false)}}>Search</p>
                         <p style={{cursor: 'pointer'}}>Pricing</p>
                         <p style={{cursor: 'pointer'}} onClick={() => {navigate('/login'); setClicked(false)}}>Sign in</p>
-                        <div style={{ cursor: 'pointer' }} onClick={() => handleClick()}>
+                        <div style={{ cursor: 'pointer' }} onClick={() => {handleClick(); setClicked(false)}}>
                             {
                                 !mode ?
                                     <MdDarkMode color='rgb(17, 24, 38)' size={20} /> :

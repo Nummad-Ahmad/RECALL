@@ -82,10 +82,10 @@
 //                         <html lang="en">
 //                             <head></head>
 //                             <body>  
-                            
+
 //     <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
-    
-    
+
+
 
 //                                 <script defer>
 //                                     window.botpress.on("webchat:ready", (conversationId) => {
@@ -134,7 +134,7 @@ import { useNavigate } from 'react-router-dom';
 export default function Chat() {
     const navigate = useNavigate();
     const mode = useSelector((state) => state.mode.value);
-  const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
 
     // const url = 'https://chat.botpress.cloud/f1984cf2-0a55-4199-9e76-f6a6e2fc36b5/conversations/convo-1/messages';
@@ -188,10 +188,10 @@ export default function Chat() {
     //     }
     //     console.log("mode", mode);
     // }, []);
-        function handleClick() {
-            dispatch(toggleMode());
-            localStorage.setItem('isOn', JSON.stringify(mode));
-        }
+    function handleClick() {
+        dispatch(toggleMode());
+        localStorage.setItem('isOn', JSON.stringify(mode));
+    }
     const h1Style = {
         margin: '0px',
         fontFamily: 'sans-serif',
@@ -200,8 +200,8 @@ export default function Chat() {
         fontSize: '18px',
         userSelect: 'none',
         touchAction: 'manipulation',
-  webkitUserSelect: 'none',
-  msUserSelect: 'none',
+        webkitUserSelect: 'none',
+        msUserSelect: 'none',
     };
 
     return (
@@ -210,20 +210,32 @@ export default function Chat() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <h1 style={h1Style}>Recall</h1>
                     <div className={style.topmenu}>
-                    <div style={{display: 'inline'}} onClick={()=> navigate('/')}>
-                    <h1 style={h1Style}>Home</h1>
-                    </div>
+                        <div style={{
+                            display: 'inline',
+                            margin: '0px',
+                            fontFamily: 'sans-serif',
+                            cursor: 'pointer',
+                            color: mode ? 'white' : 'black',
+                            fontSize: '18px',
+                            userSelect: 'none',
+                            touchAction: 'manipulation',
+                            webkitUserSelect: 'none',
+                            msUserSelect: 'none',
+                            fontWeight: 'bold',
+                        }} onClick={() => navigate('/')}>
+                            Home
+                        </div>
                         <h1 style={h1Style}>About</h1>
-                        <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }} onClick={()=> handleClick()}>
+                        <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }} onClick={() => handleClick()}>
                             {/* <MdLightMode size={20} color={`${isOn ? 'white' : 'black'}`} />
                             <div className={`${isOn ? style.switchon : style.switchoff}`} onClick={() => setIsOn(!isOn)}>
                                 <div className={`${isOn ? style.ballon : style.balloff}`} />
                             </div>
                             <MdDarkMode size={20} color={`${isOn ? 'white' : 'black'}`} /> */}
                             {
-                                mode ? 
-                                <MdLightMode size={20} color={`${mode ? 'white' : 'black'}`} /> :
-                                <MdDarkMode size={20} color={`${mode ? 'white' : 'black'}`} />
+                                mode ?
+                                    <MdLightMode size={20} color={`${mode ? 'white' : 'black'}`} /> :
+                                    <MdDarkMode size={20} color={`${mode ? 'white' : 'black'}`} />
                             }
                         </div>
                     </div>
@@ -267,15 +279,15 @@ export default function Chat() {
                         </div>
                     </div>
                 </div> */}
-                <div style={{height: '99%'}}>
-                <iframe
-                className={style.iframe}
-                src="https://app.vectorshift.ai/search/deployed/6779c2327d14ae7a12a44e15"
-                allow="clipboard-read; clipboard-write"
-                title="VectorShift Iframe"
-            />
+                <div style={{ height: '99%' }}>
+                    <iframe
+                        className={style.iframe}
+                        src="https://app.vectorshift.ai/search/deployed/6779c2327d14ae7a12a44e15"
+                        allow="clipboard-read; clipboard-write"
+                        title="VectorShift Iframe"
+                    />
 
-            </div>
+                </div>
             </div>
         </div>
     );

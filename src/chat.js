@@ -198,7 +198,9 @@ export default function Chat() {
         cursor: 'pointer',
         color: mode ? 'white' : 'black',
         fontSize: '18px',
-        userSelect: 'none'
+        userSelect: 'none',
+  webkitUserSelect: 'none',
+  msUserSelect: 'none',
     };
 
     return (
@@ -208,7 +210,7 @@ export default function Chat() {
                     <h1 style={h1Style}>Recall</h1>
                     <div className={style.topmenu}>
                     <div style={{display: 'inline'}} onClick={()=> navigate('/')}>
-                    <a style={h1Style}>Home</a>
+                    <h1 style={h1Style}>Home</h1>
                     </div>
                         <h1 style={h1Style}>About</h1>
                         <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }} onClick={()=> handleClick()}>

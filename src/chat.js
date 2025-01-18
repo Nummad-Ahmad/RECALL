@@ -198,6 +198,7 @@ export default function Chat() {
         cursor: 'pointer',
         color: mode ? 'white' : 'black',
         fontSize: '18px',
+        userSelect: 'none'
     };
 
     return (

@@ -208,7 +208,7 @@ export default function Chat() {
                     <h1 style={h1Style}>Recall</h1>
                     <div className={style.topmenu}>
                     <div style={{display: 'inline'}} onClick={()=> navigate('/')}>
-                    <h1 style={h1Style}>Home</h1>
+                    <a style={h1Style}>Home</a>
                     </div>
                         <h1 style={h1Style}>About</h1>
                         <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }} onClick={()=> handleClick()}>

@@ -19,12 +19,12 @@ export default function Home() {
     const dispatch = useDispatch();
     const [clicked, setClicked] = useState(false);
     const navigate = useNavigate();
-    useEffect(() => {
-        const storedValue = JSON.parse(localStorage.getItem('isOn'));
-        if (storedValue) {
-            dispatch(toggleMode());
-        }
-    }, []);
+    // useEffect(() => {
+    //     const storedValue = JSON.parse(localStorage.getItem('isOn'));
+    //     if (storedValue) {
+    //         dispatch(toggleMode());
+    //     }
+    // }, []);
     function handleClick() {
         dispatch(toggleMode());
         localStorage.setItem('isOn', JSON.stringify(mode));

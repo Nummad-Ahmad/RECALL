@@ -27,6 +27,7 @@ export default function Home() {
     }
     return (
         <div className={`${isOn ? style.homedark : style.homelight}`}>
+        <div style={{display: 'flex',alignSelf: 'center', justifySelf: 'center', flexDirection: 'column', width: '100%', maxWidth: '1400px'}}>
             <div className={`${isOn ? style.navbardark : style.navbarlight}`}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <FaSearch size={20} color={`${!isOn ? 'rgb(17, 24, 38)' : 'white'}`} />
@@ -167,6 +168,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     );
 }

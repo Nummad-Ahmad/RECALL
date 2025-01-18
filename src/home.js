@@ -16,7 +16,7 @@ import { toggleMode } from './redux/slices';
 
 export default function Home() {
     const mode = useSelector((state) => state.mode.value);
-  const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const [clicked, setClicked] = useState(false);
     const navigate = useNavigate();
     useEffect(() => {
@@ -63,10 +63,10 @@ export default function Home() {
                 {
                     clicked &&
                     <div className={`${mode ? style.menudark : style.menulight}`}>
-                        <p style={{cursor: 'pointer'}} onClick={()=> {navigate('/chat'); setClicked(false)}}>Search</p>
-                        <p style={{cursor: 'pointer'}}>Pricing</p>
-                        <p style={{cursor: 'pointer'}} onClick={() => {navigate('/login'); setClicked(false)}}>Sign in</p>
-                        <div style={{ cursor: 'pointer' }} onClick={() => {handleClick(); setClicked(false)}}>
+                        <p style={{ cursor: 'pointer' }} onClick={() => { navigate('/chat'); setClicked(false) }}>Search</p>
+                        <p style={{ cursor: 'pointer' }}>Pricing</p>
+                        <p style={{ cursor: 'pointer' }} onClick={() => { navigate('/login'); setClicked(false) }}>Sign in</p>
+                        <div style={{ cursor: 'pointer' }} onClick={() => { handleClick(); setClicked(false) }}>
                             {
                                 !mode ?
                                     <MdDarkMode color='rgb(17, 24, 38)' size={20} /> :

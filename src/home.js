@@ -63,9 +63,9 @@ export default function Home() {
                 {
                     clicked &&
                     <div className={`${mode ? style.menudark : style.menulight}`}>
-                        <p style={{cursor: 'pointer'}} onClick={()=> navigate('/chat')}>Search</p>
+                        <p style={{cursor: 'pointer'}} onClick={()=> {navigate('/chat'); setClicked(false)}}>Search</p>
                         <p style={{cursor: 'pointer'}}>Pricing</p>
-                        <p style={{cursor: 'pointer'}} onClick={() => navigate('/login')}>Sign in</p>
+                        <p style={{cursor: 'pointer'}} onClick={() => {navigate('/login'); setClicked(false)}}>Sign in</p>
                         <div style={{ cursor: 'pointer' }} onClick={() => handleClick()}>
                             {
                                 !mode ?

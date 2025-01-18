@@ -35,7 +35,13 @@ export default function Home() {
                 <div className={`${mode ? style.navbardark : style.navbarlight}`}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                         <FaSearch size={20} color={`${!mode ? 'rgb(17, 24, 38)' : 'white'}`} />
-                        <p style={{ margin: '0px', fontSize: '20px', fontFamily: 'sans-serif', fontWeight: 'bold' }}>RECALL</p>
+                        <p style={{
+                            margin: '0px', fontSize: '20px', fontFamily: 'sans-serif', fontWeight: 'bold',
+                            userSelect: 'none',
+                            touchAction: 'manipulation',
+                            webkitUserSelect: 'none',
+                            msUserSelect: 'none',
+                        }}>RECALL</p>
                     </div>
                     <div className={style.options}>
                         <p onClick={() => navigate('/chat')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Search</p>

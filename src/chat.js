@@ -205,6 +205,7 @@ export default function Chat() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <h1 style={h1Style}>Recall</h1>
                     <div className={style.topmenu}>
+                    <h1 style={h1Style}>Home</h1>
                         <h1 style={h1Style}>About</h1>
                         <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }} onClick={()=> handleClick()}>
                             {/* <MdLightMode size={20} color={`${isOn ? 'white' : 'black'}`} />

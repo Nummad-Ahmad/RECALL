@@ -54,7 +54,7 @@ export default function Home() {
                 <IoIosSearch size='90px' color={'rgb(55, 130, 241)'} />
                 <p className={`${isOn ? style.heroheadingdark : style.heroheadinglight}`}>Search UK Haematology Guidelines</p>
                 <p className={`${isOn ? style.herotextdark : style.herotextlight}`}>Get instant, accurate answers with citations from trusted sources</p>
-                <div style={{ display: 'flex', gap: '30px' }}>
+                <div style={{ display: 'flex', gap: '10px' }}>
                     <div className={style.bluediv}>Start Searching</div>
                     <div className={`${isOn ? style.whitedivdark : style.whitedivlight}`}>View Pricing</div>
                 </div>

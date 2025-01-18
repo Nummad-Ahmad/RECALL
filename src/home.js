@@ -9,6 +9,7 @@ import { IoIosSearch } from "react-icons/io";
 import { FiBookOpen } from "react-icons/fi";
 import { FaRegClock } from "react-icons/fa";
 import { IoShieldOutline } from "react-icons/io5";
+import { IoMdCheckmark } from "react-icons/io";
 export default function Home() {
     const navigate = useNavigate();
     const [isOn, setIsOn] = useState('');
@@ -31,10 +32,10 @@ export default function Home() {
                     <FaSearch size={20} color={`${!isOn ? 'rgb(17, 24, 38)' : 'white'}`} />
                     <p style={{ margin: '0px', fontSize: '20px', fontFamily: 'sans-serif', fontWeight: 'bold' }}>RECALL</p>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+                <div className={style.options}>
                     <p onClick={() => navigate('/chat')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Search</p>
                     <p style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Pricing</p>
-                    <div style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '5px' }} onClick={()=> navigate('/login')}>
+                    <div style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '5px' }} onClick={() => navigate('/login')}>
                         <FiLogIn size={20} color={`${!isOn ? 'rgb(17, 24, 38)' : 'white'}`} />
                         <p style={{ margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Sign in</p>
                     </div>
@@ -49,12 +50,12 @@ export default function Home() {
 
             </div>
             <div className={style.hero}>
-                <IoIosSearch size={90} color={'rgb(55, 130, 241)'} />
+                <IoIosSearch size='90px' color={'rgb(55, 130, 241)'} />
                 <p className={`${isOn ? style.heroheadingdark : style.heroheadinglight}`}>Search UK Haematology Guidelines</p>
                 <p className={`${isOn ? style.herotextdark : style.herotextlight}`}>Get instant, accurate answers with citations from trusted sources</p>
                 <div style={{ display: 'flex', gap: '30px' }}>
                     <div className={style.bluediv}>Start Searching</div>
-                    <div className={`${isOn ? style.whitedivdark : style.whitedivlight}`}>Start Searching</div>
+                    <div className={`${isOn ? style.whitedivdark : style.whitedivlight}`}>View Pricing</div>
                 </div>
             </div>
             <div className={`${isOn ? style.introdark : style.introlight}`}>
@@ -67,32 +68,105 @@ export default function Home() {
                     <div className={style.icondiv}>
                         <FiBookOpen size={25} color='rgb(55, 130, 241)' />
                     </div>
-                  <p style={{margin: '0px', marginTop: '10px',fontSize: '18px', fontWeight: 'bold', fontFamily: 'sans-serif'}}>Comprehensive Coverage</p>
-                  <p style={{margin: '0px', fontSize: '15px', fontFamily: 'sans-serif'}}>Access the latest UK haematology guidelines and protocols from trusted sources.</p>
+                    <p style={{ margin: '0px', marginTop: '10px', fontSize: '18px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>Comprehensive Coverage</p>
+                    <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>Access the latest UK haematology guidelines and protocols from trusted sources.</p>
                 </div>
                 <div className={`${isOn ? style.advantagedark : style.advantagelight}`}>
                     <div className={style.icondiv}>
                         <FaSearch size={25} color='rgb(55, 130, 241)' />
                     </div>
-                    <p style={{margin: '0px', marginTop: '10px',fontSize: '18px', fontWeight: 'bold', fontFamily: 'sans-serif'}}>Intelligent search</p>
-                    <p style={{margin: '0px', fontSize: '15px', fontFamily: 'sans-serif'}}>Get precise answers with direct citations, powered by advanced AI technology.</p>
+                    <p style={{ margin: '0px', marginTop: '10px', fontSize: '18px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>Intelligent search</p>
+                    <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>Get precise answers with direct citations, powered by advanced AI technology.</p>
                 </div>
                 <div className={`${isOn ? style.advantagedark : style.advantagelight}`}>
                     <div className={style.icondiv}>
                         <FaRegClock size={25} color='rgb(55, 130, 241)' />
                     </div>
-                    <p style={{margin: '0px', marginTop: '10px',fontSize: '18px', fontWeight: 'bold', fontFamily: 'sans-serif'}}>Time saving</p>
-                    <p style={{margin: '0px', fontSize: '15px', fontFamily: 'sans-serif'}}>FInd exactly what you need in seconds instead of manually searching through documents.</p>
+                    <p style={{ margin: '0px', marginTop: '10px', fontSize: '18px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>Time saving</p>
+                    <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>FInd exactly what you need in seconds instead of manually searching through documents.</p>
                 </div>
                 <div className={`${isOn ? style.advantagedark : style.advantagelight}`}>
                     <div className={style.icondiv}>
                         <IoShieldOutline size={25} color='rgb(55, 130, 241)' />
                     </div>
-                    <p style={{margin: '0px', marginTop: '10px',fontSize: '18px', fontWeight: 'bold', fontFamily: 'sans-serif'}}>Evidence based</p>
-                    <p style={{margin: '0px', fontSize: '15px', fontFamily: 'sans-serif'}}>Every answer is backed by verified medical guidelines and protocols.</p>
+                    <p style={{ margin: '0px', marginTop: '10px', fontSize: '18px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>Evidence based</p>
+                    <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>Every answer is backed by verified medical guidelines and protocols.</p>
                 </div>
             </div>
-
+            <p className={`${isOn ? style.whychooseustextdark : style.whychooseustextlight}`}>Simple Transparent Pricing</p>
+            <div className={style.whychooseus}>
+                <div className={`${isOn ? style.advantagedark : style.advantagelight}`}>
+                    <p style={{ margin: '0px', marginTop: '10px', fontSize: '18px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>Free</p>
+                    <p style={{ margin: '0px', marginTop: '10px', fontSize: '25px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>£ 0</p>
+                    <div style={{ display: 'flex', gap: '20px' }}>
+                        <IoMdCheckmark color='rgb(29, 255, 29)' size={20} />
+                        <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>3 free searches everyday</p>
+                    </div>
+                    <div style={{ display: 'flex', gap: '20px' }}>
+                        <IoMdCheckmark color='rgb(29, 255, 29)' size={20} />
+                        <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>Citaions</p>
+                    </div>
+                    
+                    <div className={`${style.btn}`}>
+                        Get Started
+                    </div>
+                </div>
+                <div className={`${isOn ? style.advantagedark : style.advantagelight}`}>
+                    <p style={{ margin: '0px', marginTop: '10px', fontSize: '18px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>Premium Monthly</p>
+                    <p style={{ margin: '0px', marginTop: '10px', fontSize: '25px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>£ 9.99</p>
+                    <div style={{ display: 'flex', gap: '20px' }}>
+                        <IoMdCheckmark color='rgb(29, 255, 29)' size={20} />
+                        <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>Unlimited searches</p>
+                    </div>
+                    <div style={{ display: 'flex', gap: '20px' }}>
+                        <IoMdCheckmark color='rgb(29, 255, 29)' size={20} />
+                        <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>Citaions</p>
+                    </div>
+                    
+                    <div className={`${style.btn}`}>
+                        Subscribe
+                    </div>
+                </div>
+                <div className={`${isOn ? style.advantagedark : style.advantagelight}`}>
+                    <p style={{ margin: '0px', marginTop: '10px', fontSize: '18px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>Premium Annual</p>
+                    <p style={{ margin: '0px', marginTop: '10px', fontSize: '25px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>£ 90</p>
+                    <div style={{ display: 'flex', gap: '20px' }}>
+                        <IoMdCheckmark color='rgb(29, 255, 29)' size={20} />
+                        <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>Unlimited searches</p>
+                    </div>
+                    <div style={{ display: 'flex', gap: '20px' }}>
+                        <IoMdCheckmark color='rgb(29, 255, 29)' size={20} />
+                        <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>Citaions</p>
+                    </div>
+                    <div style={{ display: 'flex', gap: '20px' }}>
+                        <IoMdCheckmark color='rgb(29, 255, 29)' size={20} />
+                        <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>Save £ 29.88 per year</p>
+                    </div>
+                    
+                    <div className={`${style.btn}`}>
+                        Subscribe
+                    </div>
+                </div>
+                <div className={`${isOn ? style.advantagedark : style.advantagelight}`}>
+                    <p style={{ margin: '0px', marginTop: '10px', fontSize: '18px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>Student</p>
+                    <p style={{ margin: '0px', marginTop: '10px', fontSize: '25px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>£ 3.50</p>
+                    <div style={{ display: 'flex', gap: '20px' }}>
+                        <IoMdCheckmark color='rgb(29, 255, 29)' size={20} />
+                        <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>3 free searches everyday</p>
+                    </div>
+                    <div style={{ display: 'flex', gap: '20px' }}>
+                        <IoMdCheckmark color='rgb(29, 255, 29)' size={20} />
+                        <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>Citaions</p>
+                    </div>
+                    <div style={{ display: 'flex', gap: '20px' }}>
+                        <IoMdCheckmark color='rgb(29, 255, 29)' size={20} />
+                        <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>Requires student verification</p>
+                    </div>
+                    <div className={`${style.btn}`}>
+                        Verify & Subscribe
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }

@@ -34,18 +34,27 @@
     background-color: rgb(220, 220, 220);
     color: black;
 }
-
+.options{
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+}
+.menu{
+    display: none;
+}
 .hero {
-    height: 300px;
-    width: 100%;
+    /* height: 300px; */
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0px auto;
     margin-top: 50px;
     gap: 20px;
 }
 
 .heroheadinglight {
+    text-align: center;
     margin: 0px;
     font-size: 35px;
     font-family: sans-serif;
@@ -54,6 +63,7 @@
 }
 
 .heroheadingdark {
+    text-align: center;
     margin: 0px;
     font-size: 35px;
     font-family: sans-serif;
@@ -62,6 +72,7 @@
 }
 
 .herotextlight {
+    text-align: center;
     margin: 0px;
     font-size: 20px;
     font-family: sans-serif;
@@ -69,6 +80,7 @@
 }
 
 .herotextdark {
+    text-align: center;
     margin: 0px;
     font-size: 20px;
     font-family: sans-serif;
@@ -116,9 +128,8 @@
 
 .introlight {
     width: 60%;
-    height: 300px;
-    margin: 0px auto;
-    margin-top: 40px;
+    /* height: 300px; */
+    margin: 40px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -128,9 +139,7 @@
 
 .introdark {
     width: 60%;
-    height: 200px;
-    margin: 0px auto;
-    margin-top: 40px;
+    margin: 40px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -205,6 +214,20 @@
     background-color: rgb(31, 41, 54);
     color: white;
 }
+.btn{
+    width: 90%;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(55, 130, 241);
+    font-family: sans-serif;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: auto;
+    margin-bottom: 0px;
+}
 .icondiv{
     height: 50px;
     width: 50px;
@@ -213,4 +236,28 @@
     align-items: center;
     background-color: rgb(219, 234, 253);
     border-radius: 50%;
+}
+@media(max-width: 900px){
+    .whychooseus{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+    
+    .introdark{
+        width: 80%;
+    }
+    .introlight{
+        width: 80%;
+    }
+}
+@media(max-width: 700px){
+    .options{
+        display: none;
+    }
+}
+@media(max-width: 600px){
+    .whychooseus{
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
 }

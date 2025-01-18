@@ -199,6 +199,7 @@ export default function Chat() {
         color: mode ? 'white' : 'black',
         fontSize: '18px',
         userSelect: 'none',
+        touchAction: 'manipulation',
   webkitUserSelect: 'none',
   msUserSelect: 'none',
     };

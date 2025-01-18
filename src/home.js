@@ -54,17 +54,24 @@ export default function Home() {
                     <div className={style.menuicon} onClick={() => setClicked(!clicked)}>
                         {
                             clicked ?
-                                <IoMdClose color={`${isOn ? 'white' : 'black'}`} /> :
-                                <IoMdMenu color={`${isOn ? 'white' : 'black'}`} />
+                                <IoMdClose size={20} color={`${isOn ? 'white' : 'black'}`} /> :
+                                <IoMdMenu size={20} color={`${isOn ? 'white' : 'black'}`} />
                         }
                     </div>
                 </div>
                 {
                     clicked &&
-                    <div className={style.menu}>
-                        <p>Search</p>
-                        <p>Pricing</p>
-                        <p>Sign in</p>
+                    <div className={`${isOn ? style.menudark : style.menulight}`}>
+                        <p style={{cursor: 'pointer'}} onClick={()=> navigate('/chat')}>Search</p>
+                        <p style={{cursor: 'pointer'}}>Pricing</p>
+                        <p style={{cursor: 'pointer'}} onClick={() => navigate('/login')}>Sign in</p>
+                        <div style={{ cursor: 'pointer' }} onClick={() => handleClick()}>
+                            {
+                                !isOn ?
+                                    <MdDarkMode color='rgb(17, 24, 38)' size={20} /> :
+                                    <MdLightMode color='white' size={20} />
+                            }
+                        </div>
                     </div>
                 }
                 <div className={style.hero}>

@@ -122,83 +122,100 @@
 
 
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import style from './chat.module.css';
 import { MdLightMode } from "react-icons/md";
 import { MdDarkMode } from "react-icons/md";
-import { FaRegArrowAltCircleUp } from "react-icons/fa";
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleMode } from './redux/slices';
 import axios from 'axios';
 
 export default function Chat() {
-    const url = 'https://chat.botpress.cloud/f1984cf2-0a55-4199-9e76-f6a6e2fc36b5/conversations/convo-1/messages';
-    const options = { method: 'GET', headers: { accept: 'application/json', 'x-user-key': 'Nummad1' } };
 
-    fetch(url, options)
-        .then(res => res.json())
-        .then(json => console.log('json', json))
-        .catch(err => console.error(err));
+    const mode = useSelector((state) => state.mode.value);
+  const dispatch = useDispatch();
 
-    const [messages, setMessages] = useState([]);
-    const [isOn, setIsOn] = useState(true);
-    const [message, setMessage] = useState({ type: 'question', content: '' });
 
-    const addMessage = async () => {
-        fetch(url, options)
-            .then(res => res.json())
-            .then(json => console.log('json', json))
-            .catch(err => console.error('error', err));
-        if (!message.content.trim()) return;
+    // const url = 'https://chat.botpress.cloud/f1984cf2-0a55-4199-9e76-f6a6e2fc36b5/conversations/convo-1/messages';
+    // const options = { method: 'GET', headers: { accept: 'application/json', 'x-user-key': 'Nummad1' } };
 
-        const userMessage = { type: 'question', content: message.content };
-        setMessages((prevMessages) => [...prevMessages, userMessage]);
+    // fetch(url, options)
+    //     .then(res => res.json())
+    //     .then(json => console.log('json', json))
+    //     .catch(err => console.error(err));
 
-        setMessage({ type: 'question', content: '' });
+    // const [messages, setMessages] = useState([]);
+    // const [isOn, setIsOn] = useState(true);
+    // const [message, setMessage] = useState({ type: 'question', content: '' });
 
-        await sendMessageToBot(userMessage.content);
-    };
+    // const addMessage = async () => {
+    //     fetch(url, options)
+    //         .then(res => res.json())
+    //         .then(json => console.log('json', json))
+    //         .catch(err => console.error('error', err));
+    //     if (!message.content.trim()) return;
 
-    const sendMessageToBot = async (userMessage) => {
-        console.log(userMessage);
-        try {
-            const response = await axios.post('http://localhost:3000/send', { userMessage });
-            setMessages((prevMessages) => [
-                ...prevMessages,
-                { type: 'answer', content: response.data },
-            ]);
-        } catch (error) {
-            console.error('Error fetching data:', error);
-            setMessages((prevMessages) => [
-                ...prevMessages,
-                { type: 'answer', content: 'Unable to connect to the bot. Please try again later.' },
-            ]);
+    //     const userMessage = { type: 'question', content: message.content };
+    //     setMessages((prevMessages) => [...prevMessages, userMessage]);
+
+    //     setMessage({ type: 'question', content: '' });
+
+    //     await sendMessageToBot(userMessage.content);
+    // };
+
+    // const sendMessageToBot = async (userMessage) => {
+    //     console.log(userMessage);
+    //     try {
+    //         const response = await axios.post('http://localhost:3000/send', { userMessage });
+    //         setMessages((prevMessages) => [
+    //             ...prevMessages,
+    //             { type: 'answer', content: response.data },
+    //         ]);
+    //     } catch (error) {
+    //         console.error('Error fetching data:', error);
+    //         setMessages((prevMessages) => [
+    //             ...prevMessages,
+    //             { type: 'answer', content: 'Unable to connect to the bot. Please try again later.' },
+    //         ]);
+    //     }
+    // };
+
+    // useEffect(() => {
+    //     const storedValue = JSON.parse(localStorage.getItem('isOn'));
+    //     if (storedValue) {
+    //         dispatch(toggleMode());
+    //     }
+    //     console.log("mode", mode);
+    // }, []);
+        function handleClick() {
+            dispatch(toggleMode());
+            localStorage.setItem('isOn', JSON.stringify(mode));
         }
-    };
-
     const h1Style = {
         margin: '0px',
         fontFamily: 'sans-serif',
         cursor: 'pointer',
-        color: isOn ? 'white' : 'black',
+        color: mode ? 'white' : 'black',
         fontSize: '18px',
     };
 
     return (
-        <div className={`${!isOn ? style.homelight : style.homedark}`}>
+        <div className={`${!mode ? style.homelight : style.homedark}`}>
             <div className={style.chat}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <h1 style={h1Style}>Recall</h1>
                     <div className={style.topmenu}>
                         <h1 style={h1Style}>About</h1>
-                        <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }} onClick={()=> setIsOn(!isOn)}>
+                        <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }} onClick={()=> handleClick()}>
                             {/* <MdLightMode size={20} color={`${isOn ? 'white' : 'black'}`} />
                             <div className={`${isOn ? style.switchon : style.switchoff}`} onClick={() => setIsOn(!isOn)}>
                                 <div className={`${isOn ? style.ballon : style.balloff}`} />
                             </div>
                             <MdDarkMode size={20} color={`${isOn ? 'white' : 'black'}`} /> */}
                             {
-                                isOn ? 
-                                <MdLightMode size={20} color={`${isOn ? 'white' : 'black'}`} /> :
-                                <MdDarkMode size={20} color={`${isOn ? 'white' : 'black'}`} />
+                                mode ? 
+                                <MdLightMode size={20} color={`${mode ? 'white' : 'black'}`} /> :
+                                <MdDarkMode size={20} color={`${mode ? 'white' : 'black'}`} />
                             }
                         </div>
                     </div>

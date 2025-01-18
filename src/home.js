@@ -10,42 +10,43 @@ import { FiBookOpen } from "react-icons/fi";
 import { FaRegClock } from "react-icons/fa";
 import { IoShieldOutline } from "react-icons/io5";
 import { IoMdCheckmark } from "react-icons/io";
-import { AiOutlineMenu } from "react-icons/ai";
+import { useSelector, useDispatch } from 'react-redux';
 import { IoMdClose } from 'react-icons/io';
+import { toggleMode } from './redux/slices';
+
 export default function Home() {
+    const mode = useSelector((state) => state.mode.value);
+  const dispatch = useDispatch();
     const [clicked, setClicked] = useState(false);
     const navigate = useNavigate();
-    const [isOn, setIsOn] = useState('');
     useEffect(() => {
         const storedValue = JSON.parse(localStorage.getItem('isOn'));
         if (storedValue) {
-            setIsOn(storedValue);
-        } else {
-            setIsOn(true);
+            dispatch(toggleMode());
         }
     }, []);
     function handleClick() {
-        setIsOn(!isOn);
-        localStorage.setItem('isOn', JSON.stringify(isOn));
+        dispatch(toggleMode());
+        localStorage.setItem('isOn', JSON.stringify(mode));
     }
     return (
-        <div className={`${isOn ? style.homedark : style.homelight}`}>
+        <div className={`${mode ? style.homedark : style.homelight}`}>
             <div style={{ display: 'flex', alignSelf: 'center', justifySelf: 'center', flexDirection: 'column', width: '100%', maxWidth: '1400px' }}>
-                <div className={`${isOn ? style.navbardark : style.navbarlight}`}>
+                <div className={`${mode ? style.navbardark : style.navbarlight}`}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                        <FaSearch size={20} color={`${!isOn ? 'rgb(17, 24, 38)' : 'white'}`} />
+                        <FaSearch size={20} color={`${!mode ? 'rgb(17, 24, 38)' : 'white'}`} />
                         <p style={{ margin: '0px', fontSize: '20px', fontFamily: 'sans-serif', fontWeight: 'bold' }}>RECALL</p>
                     </div>
                     <div className={style.options}>
                         <p onClick={() => navigate('/chat')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Search</p>
                         <p style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Pricing</p>
                         <div style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '5px' }} onClick={() => navigate('/login')}>
-                            <FiLogIn size={20} color={`${!isOn ? 'rgb(17, 24, 38)' : 'white'}`} />
+                            <FiLogIn size={20} color={`${!mode ? 'rgb(17, 24, 38)' : 'white'}`} />
                             <p style={{ margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Sign in</p>
                         </div>
                         <div style={{ cursor: 'pointer' }} onClick={() => handleClick()}>
                             {
-                                !isOn ?
+                                !mode ?
                                     <MdDarkMode color='rgb(17, 24, 38)' size={20} /> :
                                     <MdLightMode color='white' size={20} />
                             }
@@ -54,20 +55,20 @@ export default function Home() {
                     <div className={style.menuicon} onClick={() => setClicked(!clicked)}>
                         {
                             clicked ?
-                                <IoMdClose size={20} color={`${isOn ? 'white' : 'black'}`} /> :
-                                <IoMdMenu size={20} color={`${isOn ? 'white' : 'black'}`} />
+                                <IoMdClose size={20} color={`${mode ? 'white' : 'black'}`} /> :
+                                <IoMdMenu size={20} color={`${mode ? 'white' : 'black'}`} />
                         }
                     </div>
                 </div>
                 {
                     clicked &&
-                    <div className={`${isOn ? style.menudark : style.menulight}`}>
+                    <div className={`${mode ? style.menudark : style.menulight}`}>
                         <p style={{cursor: 'pointer'}} onClick={()=> navigate('/chat')}>Search</p>
                         <p style={{cursor: 'pointer'}}>Pricing</p>
                         <p style={{cursor: 'pointer'}} onClick={() => navigate('/login')}>Sign in</p>
                         <div style={{ cursor: 'pointer' }} onClick={() => handleClick()}>
                             {
-                                !isOn ?
+                                !mode ?
                                     <MdDarkMode color='rgb(17, 24, 38)' size={20} /> :
                                     <MdLightMode color='white' size={20} />
                             }
@@ -76,41 +77,41 @@ export default function Home() {
                 }
                 <div className={style.hero}>
                     <IoIosSearch size='90px' color={'rgb(55, 130, 241)'} />
-                    <p className={`${isOn ? style.heroheadingdark : style.heroheadinglight}`}>Search UK Haematology Guidelines</p>
-                    <p className={`${isOn ? style.herotextdark : style.herotextlight}`}>Get instant, accurate answers with citations from trusted sources</p>
+                    <p className={`${mode ? style.heroheadingdark : style.heroheadinglight}`}>Search UK Haematology Guidelines</p>
+                    <p className={`${mode ? style.herotextdark : style.herotextlight}`}>Get instant, accurate answers with citations from trusted sources</p>
                     <div style={{ display: 'flex', gap: '10px' }}>
                         <div className={style.bluediv}>Start Searching</div>
-                        <div className={`${isOn ? style.whitedivdark : style.whitedivlight}`}>View Pricing</div>
+                        <div className={`${mode ? style.whitedivdark : style.whitedivlight}`}>View Pricing</div>
                     </div>
                 </div>
-                <div className={`${isOn ? style.introdark : style.introlight}`}>
+                <div className={`${mode ? style.introdark : style.introlight}`}>
                     <p className={style.question}>What is Recall?</p>
                     <p className={style.answer}>Recall is your intelligent companion for addressing and understanding UK haematology guidelines. Built for healthcare professionals, it combines advanced AI technology with verified medical sources to provide instant, accurate answers to your clinical questions.</p>
                 </div>
-                <p className={`${isOn ? style.whychooseustextdark : style.whychooseustextlight}`}>Why choose Recall</p>
+                <p className={`${mode ? style.whychooseustextdark : style.whychooseustextlight}`}>Why choose Recall</p>
                 <div className={style.whychooseus}>
-                    <div className={`${isOn ? style.advantagedark : style.advantagelight}`}>
+                    <div className={`${mode ? style.advantagedark : style.advantagelight}`}>
                         <div className={style.icondiv}>
                             <FiBookOpen size={25} color='rgb(55, 130, 241)' />
                         </div>
                         <p style={{ margin: '0px', marginTop: '10px', fontSize: '18px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>Comprehensive Coverage</p>
                         <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>Access the latest UK haematology guidelines and protocols from trusted sources.</p>
                     </div>
-                    <div className={`${isOn ? style.advantagedark : style.advantagelight}`}>
+                    <div className={`${mode ? style.advantagedark : style.advantagelight}`}>
                         <div className={style.icondiv}>
                             <FaSearch size={25} color='rgb(55, 130, 241)' />
                         </div>
                         <p style={{ margin: '0px', marginTop: '10px', fontSize: '18px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>Intelligent search</p>
                         <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>Get precise answers with direct citations, powered by advanced AI technology.</p>
                     </div>
-                    <div className={`${isOn ? style.advantagedark : style.advantagelight}`}>
+                    <div className={`${mode ? style.advantagedark : style.advantagelight}`}>
                         <div className={style.icondiv}>
                             <FaRegClock size={25} color='rgb(55, 130, 241)' />
                         </div>
                         <p style={{ margin: '0px', marginTop: '10px', fontSize: '18px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>Time saving</p>
                         <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>FInd exactly what you need in seconds instead of manually searching through documents.</p>
                     </div>
-                    <div className={`${isOn ? style.advantagedark : style.advantagelight}`}>
+                    <div className={`${mode ? style.advantagedark : style.advantagelight}`}>
                         <div className={style.icondiv}>
                             <IoShieldOutline size={25} color='rgb(55, 130, 241)' />
                         </div>
@@ -118,9 +119,9 @@ export default function Home() {
                         <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>Every answer is backed by verified medical guidelines and protocols.</p>
                     </div>
                 </div>
-                <p className={`${isOn ? style.whychooseustextdark : style.whychooseustextlight}`}>Simple Transparent Pricing</p>
+                <p className={`${mode ? style.whychooseustextdark : style.whychooseustextlight}`}>Simple Transparent Pricing</p>
                 <div className={style.whychooseus}>
-                    <div className={`${isOn ? style.advantagedark : style.advantagelight}`}>
+                    <div className={`${mode ? style.advantagedark : style.advantagelight}`}>
                         <p style={{ margin: '0px', marginTop: '10px', fontSize: '18px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>Free</p>
                         <p style={{ margin: '0px', marginTop: '10px', fontSize: '25px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>£ 0</p>
                         <div style={{ display: 'flex', gap: '20px' }}>
@@ -136,7 +137,7 @@ export default function Home() {
                             Get Started
                         </div>
                     </div>
-                    <div className={`${isOn ? style.advantagedark : style.advantagelight}`}>
+                    <div className={`${mode ? style.advantagedark : style.advantagelight}`}>
                         <p style={{ margin: '0px', marginTop: '10px', fontSize: '18px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>Premium Monthly</p>
                         <p style={{ margin: '0px', marginTop: '10px', fontSize: '25px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>£ 9.99</p>
                         <div style={{ display: 'flex', gap: '20px' }}>
@@ -152,7 +153,7 @@ export default function Home() {
                             Subscribe
                         </div>
                     </div>
-                    <div className={`${isOn ? style.advantagedark : style.advantagelight}`}>
+                    <div className={`${mode ? style.advantagedark : style.advantagelight}`}>
                         <p style={{ margin: '0px', marginTop: '10px', fontSize: '18px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>Premium Annual</p>
                         <p style={{ margin: '0px', marginTop: '10px', fontSize: '25px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>£ 90</p>
                         <div style={{ display: 'flex', gap: '20px' }}>
@@ -172,7 +173,7 @@ export default function Home() {
                             Subscribe
                         </div>
                     </div>
-                    <div className={`${isOn ? style.advantagedark : style.advantagelight}`}>
+                    <div className={`${mode ? style.advantagedark : style.advantagelight}`}>
                         <p style={{ margin: '0px', marginTop: '10px', fontSize: '18px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>Student</p>
                         <p style={{ margin: '0px', marginTop: '10px', fontSize: '25px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>£ 3.50</p>
                         <div style={{ display: 'flex', gap: '20px' }}>

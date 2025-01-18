@@ -129,9 +129,10 @@ import { MdDarkMode } from "react-icons/md";
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleMode } from './redux/slices';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function Chat() {
-
+    const navigate = useNavigate();
     const mode = useSelector((state) => state.mode.value);
   const dispatch = useDispatch();
 
@@ -205,7 +206,7 @@ export default function Chat() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <h1 style={h1Style}>Recall</h1>
                     <div className={style.topmenu}>
-                    <h1 style={h1Style}>Home</h1>
+                    <h1 style={h1Style} onClick={()=> navigate('/')}>Home</h1>
                         <h1 style={h1Style}>About</h1>
                         <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }} onClick={()=> handleClick()}>
                             {/* <MdLightMode size={20} color={`${isOn ? 'white' : 'black'}`} />

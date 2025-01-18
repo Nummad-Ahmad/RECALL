@@ -218,7 +218,21 @@
     background-color: rgb(31, 41, 54);
     color: white;
 }
-.btn{
+.btnlight{
+    width: 90%;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(55, 130, 241. 0.6);
+    font-family: sans-serif;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: auto;
+    margin-bottom: 0px;
+}
+.btndark{
     width: 90%;
     height: 40px;
     border-radius: 10px;

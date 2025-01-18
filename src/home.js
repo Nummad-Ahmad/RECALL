@@ -133,7 +133,7 @@ export default function Home() {
                             <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>Citaions</p>
                         </div>
 
-                        <div className={`${style.btn}`}>
+                        <div className={`${mode ? style.btndark : style.btnlight}`}>
                             Get Started
                         </div>
                     </div>
@@ -149,7 +149,7 @@ export default function Home() {
                             <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>Citaions</p>
                         </div>
 
-                        <div className={`${style.btn}`}>
+                        <div className={`${mode ? style.btndark : style.btnlight}`}>
                             Subscribe
                         </div>
                     </div>
@@ -169,7 +169,7 @@ export default function Home() {
                             <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>Save £ 29.88 per year</p>
                         </div>
 
-                        <div className={`${style.btn}`}>
+                        <div className={`${mode ? style.btndark : style.btnlight}`}>
                             Subscribe
                         </div>
                     </div>
@@ -188,7 +188,7 @@ export default function Home() {
                             <IoMdCheckmark color='rgb(29, 255, 29)' size={20} />
                             <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>Requires student verification</p>
                         </div>
-                        <div className={`${style.btn}`}>
+                        <div className={`${mode ? style.btndark : style.btnlight}`}>
                             Verify & Subscribe
                         </div>
                     </div>

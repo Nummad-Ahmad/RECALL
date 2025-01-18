@@ -203,7 +203,7 @@
     padding: 20px 10px;
     margin-right: 10px;
     box-sizing: border-box;
-    background-color: rgba(31, 41, 54, 0.3);
+    background-color: rgba(31, 41, 54, 0.1);
     color: black;
 }
 .advantagedark{
@@ -225,7 +225,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(55, 130, 241. 0.6);
+    background-color: rgba(55, 130, 241, 0.6);
     font-family: sans-serif;
     cursor: pointer;
     font-size: 14px;

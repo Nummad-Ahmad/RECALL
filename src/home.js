@@ -86,8 +86,14 @@ export default function Home() {
                 }
                 <div className={style.hero}>
                     <IoIosSearch size='90px' color={'rgb(55, 130, 241)'} />
-                    <p className={`${mode ? style.heroheadingdark : style.heroheadinglight}`}>Search UK Haematology Guidelines</p>
-                    <p className={`${mode ? style.herotextdark : style.herotextlight}`}>Get instant, accurate answers with citations from trusted sources</p>
+                    <p className={`${mode ? style.heroheadingdark : style.heroheadinglight}`} style={{userSelect: 'none',
+        touchAction: 'manipulation',
+        webkitUserSelect: 'none',
+        msUserSelect: 'none'}}>Search UK Haematology Guidelines</p>
+                    <p className={`${mode ? style.herotextdark : style.herotextlight}`} style={{userSelect: 'none',
+        touchAction: 'manipulation',
+        webkitUserSelect: 'none',
+        msUserSelect: 'none'}}l>Get instant, accurate answers with citations from trusted sources</p>
                     <div style={{ display: 'flex', gap: '10px' }}>
                         <div className={style.bluediv}>Start Searching</div>
                         <div className={`${mode ? style.whitedivdark : style.whitedivlight}`}>View Pricing</div>

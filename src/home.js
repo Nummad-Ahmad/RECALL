@@ -13,8 +13,10 @@ import { IoMdCheckmark } from "react-icons/io";
 import { useSelector, useDispatch } from 'react-redux';
 import { IoMdClose } from 'react-icons/io';
 import { toggleMode } from './redux/slices';
+import axios from 'axios';
 
 export default function Home() {
+    const [data, setData] = useState('');
     const mode = useSelector((state) => state.mode.value);
     const dispatch = useDispatch();
     const [clicked, setClicked] = useState(false);
@@ -35,6 +37,14 @@ export default function Home() {
             behavior: 'smooth', // Smooth scrolling
         });
     };
+    function get(){
+        console.log('res');
+        axios.get('https://recallbackend.vercel.app/').
+                            then(res => console.log('res', res)).
+                            catch(e => {
+                                console.log(e);
+                            })
+    }
     return (
         <div className={`${mode ? style.homedark : style.homelight}`}>
             <div style={{ display: 'flex', alignSelf: 'center', justifySelf: 'center', flexDirection: 'column', width: '100%', maxWidth: '1400px' }}>
@@ -105,7 +115,9 @@ export default function Home() {
                         msUserSelect: 'none'
                     }} l>Get instant, accurate answers with citations from trusted sources</p>
                     <div style={{ display: 'flex', gap: '10px' }}>
-                        <div className={style.bluediv}>Start Searching</div>
+                        <div onClick={()=>{
+                            get()
+                        }} className={style.bluediv}>Start Searching </div>
                         <div onClick={handleScroll} className={`${mode ? style.whitedivdark : style.whitedivlight}`}>View Pricing</div>
                     </div>
                 </div>

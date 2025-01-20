@@ -53,7 +53,7 @@ export default function Home() {
                         <p onClick={() => navigate('/chat')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Search</p>
                         <p onClick={() => navigate('/feedback')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Feedback</p>
                         <p onClick={() => handleScroll()} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Pricing</p>
-                        <div style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '5px' }} onClick={() => navigate('/login')}>
+                        <div style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '5px' }} onClick={() => navigate('/')}>
                             <FiLogIn size={20} color={`${!mode ? 'rgb(17, 24, 38)' : 'white'}`} />
                             <p style={{ margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Sign in</p>
                         </div>
@@ -80,7 +80,7 @@ export default function Home() {
                         <p onClick={() => navigate('/feedback')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Feedback</p>
                         <p style={{ cursor: 'pointer' }} onClick={() => { navigate('/chat'); setClicked(false) }}>Search</p>
                         <p onClick={() => handleScroll()} style={{ cursor: 'pointer' }}>Pricing</p>
-                        <p style={{ cursor: 'pointer' }} onClick={() => { navigate('/login'); setClicked(false) }}>Sign in</p>
+                        <p style={{ cursor: 'pointer' }} onClick={() => { navigate('/'); setClicked(false) }}>Sign in</p>
                         <div style={{ cursor: 'pointer' }} onClick={() => { handleClick(); setClicked(false) }}>
                             {
                                 !mode ?

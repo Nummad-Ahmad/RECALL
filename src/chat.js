@@ -214,7 +214,7 @@ export default function Chat() {
                             fontFamily: 'sans-serif',
                             display: 'inline',
                             color: mode ? 'white' : 'black',
-                        }} onClick={() => navigate('/')}>
+                        }} onClick={() => navigate('/home')}>
                             Home
                         </div>
                         <p style={h1Style}>About</p>

@@ -70,6 +70,8 @@ export default function Home() {
                 {
                     clicked &&
                     <div className={`${mode ? style.menudark : style.menulight}`}>
+                    
+                    <p onClick={() => navigate('/feedback')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Feedback</p>
                         <p style={{ cursor: 'pointer' }} onClick={() => { navigate('/chat'); setClicked(false) }}>Search</p>
                         <p style={{ cursor: 'pointer' }}>Pricing</p>
                         <p style={{ cursor: 'pointer' }} onClick={() => { navigate('/login'); setClicked(false) }}>Sign in</p>

@@ -73,6 +73,7 @@ export default function Contact() {
             {
                 clicked &&
                 <div className={`${mode ? style.menudark : style.menulight}`}>
+                <p onClick={() => navigate('/')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Home</p>
                     <p style={{ cursor: 'pointer' }} onClick={() => { navigate('/chat'); setClicked(false) }}>Search</p>
                     <p style={{ cursor: 'pointer' }}>Pricing</p>
                     <p style={{ cursor: 'pointer' }} onClick={() => { navigate('/login'); setClicked(false) }}>Sign in</p>

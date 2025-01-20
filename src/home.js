@@ -29,6 +29,12 @@ export default function Home() {
         dispatch(toggleMode());
         localStorage.setItem('isOn', JSON.stringify(mode));
     }
+        const handleScroll = () => {
+          window.scrollBy({
+            top: document.documentElement.scrollHeight,
+            behavior: 'smooth', // Smooth scrolling
+          });
+        };
     return (
         <div className={`${mode ? style.homedark : style.homelight}`}>
             <div style={{ display: 'flex', alignSelf: 'center', justifySelf: 'center', flexDirection: 'column', width: '100%', maxWidth: '1400px' }}>
@@ -46,7 +52,7 @@ export default function Home() {
                     <div className={style.options}>
                         <p onClick={() => navigate('/chat')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Search</p>
                         <p onClick={() => navigate('/feedback')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Feedback</p>
-                        <p style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Pricing</p>
+                        <p onClick={()=>handleScroll()} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Pricing</p>
                         <div style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '5px' }} onClick={() => navigate('/login')}>
                             <FiLogIn size={20} color={`${!mode ? 'rgb(17, 24, 38)' : 'white'}`} />
                             <p style={{ margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Sign in</p>
@@ -73,7 +79,7 @@ export default function Home() {
                     
                     <p onClick={() => navigate('/feedback')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Feedback</p>
                         <p style={{ cursor: 'pointer' }} onClick={() => { navigate('/chat'); setClicked(false) }}>Search</p>
-                        <p style={{ cursor: 'pointer' }}>Pricing</p>
+                        <p onClick={()=>handleScroll()} style={{ cursor: 'pointer' }}>Pricing</p>
                         <p style={{ cursor: 'pointer' }} onClick={() => { navigate('/login'); setClicked(false) }}>Sign in</p>
                         <div style={{ cursor: 'pointer' }} onClick={() => { handleClick(); setClicked(false) }}>
                             {

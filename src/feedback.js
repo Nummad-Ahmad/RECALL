@@ -49,7 +49,7 @@ export default function Contact() {
                 <div className={style.options}>
                     <p onClick={() => navigate('/')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Home</p>
                     <p onClick={() => navigate('/chat')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Search</p>
-                    <p style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Pricing</p>
+                    <p  onClick={()=> navigate('/')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Pricing</p>
                     <div style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '5px' }} onClick={() => navigate('/login')}>
                         <FiLogIn size={20} color={`${!mode ? 'rgb(17, 24, 38)' : 'white'}`} />
                         <p style={{ margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Sign in</p>
@@ -75,7 +75,7 @@ export default function Contact() {
                 <div className={`${mode ? style.menudark : style.menulight}`}>
                 <div onClick={() => navigate('/')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Home</div>
                     <p style={{ cursor: 'pointer' }} onClick={() => { navigate('/chat'); setClicked(false) }}>Search</p>
-                    <p style={{ cursor: 'pointer' }}>Pricing</p>
+                    <p onClick={()=> navigate('/')} style={{ cursor: 'pointer' }}>Pricing</p>
                     <p style={{ cursor: 'pointer' }} onClick={() => { navigate('/login'); setClicked(false) }}>Sign in</p>
                     <div style={{ cursor: 'pointer' }} onClick={() => { handleClick(); setClicked(false) }}>
                         {

@@ -193,15 +193,12 @@ export default function Chat() {
         localStorage.setItem('isOn', JSON.stringify(mode));
     }
     const h1Style = {
-        margin: '0px',
-        fontFamily: 'sans-serif',
         cursor: 'pointer',
-        color: mode ? 'white' : 'black',
+        margin: '0px',
         fontSize: '18px',
-        userSelect: 'none',
-        touchAction: 'manipulation',
-        webkitUserSelect: 'none',
-        msUserSelect: 'none',
+        fontFamily: 'sans-serif',
+        display: 'inline',
+        color: mode ? 'white' : 'black',
     };
 
     return (
@@ -211,21 +208,16 @@ export default function Chat() {
                     <h1 style={h1Style}>Recall</h1>
                     <div className={style.topmenu}>
                         <div style={{
-                            display: 'inline',
-                            margin: '0px',
-                            fontFamily: 'sans-serif',
                             cursor: 'pointer',
-                            color: mode ? 'white' : 'black',
+                            margin: '0px',
                             fontSize: '18px',
-                            userSelect: 'none',
-                            touchAction: 'manipulation',
-                            webkitUserSelect: 'none',
-                            msUserSelect: 'none',
-                            fontWeight: 'bold',
+                            fontFamily: 'sans-serif',
+                            display: 'inline',
+                            color: mode ? 'white' : 'black',
                         }} onClick={() => navigate('/')}>
                             Home
                         </div>
-                        <h1 style={h1Style}>About</h1>
+                        <p style={h1Style}>About</p>
                         <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }} onClick={() => handleClick()}>
                             {/* <MdLightMode size={20} color={`${isOn ? 'white' : 'black'}`} />
                             <div className={`${isOn ? style.switchon : style.switchoff}`} onClick={() => setIsOn(!isOn)}>
@@ -286,7 +278,6 @@ export default function Chat() {
                         allow="clipboard-read; clipboard-write"
                         title="VectorShift Iframe"
                     />
-
                 </div>
             </div>
         </div>

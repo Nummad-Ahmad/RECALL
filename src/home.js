@@ -29,12 +29,12 @@ export default function Home() {
         dispatch(toggleMode());
         localStorage.setItem('isOn', JSON.stringify(mode));
     }
-        const handleScroll = () => {
-          window.scrollBy({
+    const handleScroll = () => {
+        window.scrollBy({
             top: document.documentElement.scrollHeight,
             behavior: 'smooth', // Smooth scrolling
-          });
-        };
+        });
+    };
     return (
         <div className={`${mode ? style.homedark : style.homelight}`}>
             <div style={{ display: 'flex', alignSelf: 'center', justifySelf: 'center', flexDirection: 'column', width: '100%', maxWidth: '1400px' }}>
@@ -52,7 +52,7 @@ export default function Home() {
                     <div className={style.options}>
                         <p onClick={() => navigate('/chat')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Search</p>
                         <p onClick={() => navigate('/feedback')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Feedback</p>
-                        <p onClick={()=>handleScroll()} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Pricing</p>
+                        <p onClick={() => handleScroll()} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Pricing</p>
                         <div style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '5px' }} onClick={() => navigate('/login')}>
                             <FiLogIn size={20} color={`${!mode ? 'rgb(17, 24, 38)' : 'white'}`} />
                             <p style={{ margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Sign in</p>
@@ -76,10 +76,10 @@ export default function Home() {
                 {
                     clicked &&
                     <div className={`${mode ? style.menudark : style.menulight}`}>
-                    
-                    <p onClick={() => navigate('/feedback')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Feedback</p>
+
+                        <p onClick={() => navigate('/feedback')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Feedback</p>
                         <p style={{ cursor: 'pointer' }} onClick={() => { navigate('/chat'); setClicked(false) }}>Search</p>
-                        <p onClick={()=>handleScroll()} style={{ cursor: 'pointer' }}>Pricing</p>
+                        <p onClick={() => handleScroll()} style={{ cursor: 'pointer' }}>Pricing</p>
                         <p style={{ cursor: 'pointer' }} onClick={() => { navigate('/login'); setClicked(false) }}>Sign in</p>
                         <div style={{ cursor: 'pointer' }} onClick={() => { handleClick(); setClicked(false) }}>
                             {
@@ -92,17 +92,21 @@ export default function Home() {
                 }
                 <div className={style.hero}>
                     <IoIosSearch size='90px' color={'rgb(55, 130, 241)'} />
-                    <p className={`${mode ? style.heroheadingdark : style.heroheadinglight}`} style={{userSelect: 'none',
-        touchAction: 'manipulation',
-        webkitUserSelect: 'none',
-        msUserSelect: 'none'}}>Search UK Haematology Guidelines</p>
-                    <p className={`${mode ? style.herotextdark : style.herotextlight}`} style={{userSelect: 'none',
-        touchAction: 'manipulation',
-        webkitUserSelect: 'none',
-        msUserSelect: 'none'}}l>Get instant, accurate answers with citations from trusted sources</p>
+                    <p className={`${mode ? style.heroheadingdark : style.heroheadinglight}`} style={{
+                        userSelect: 'none',
+                        touchAction: 'manipulation',
+                        webkitUserSelect: 'none',
+                        msUserSelect: 'none'
+                    }}>Search UK Haematology Guidelines</p>
+                    <p className={`${mode ? style.herotextdark : style.herotextlight}`} style={{
+                        userSelect: 'none',
+                        touchAction: 'manipulation',
+                        webkitUserSelect: 'none',
+                        msUserSelect: 'none'
+                    }} l>Get instant, accurate answers with citations from trusted sources</p>
                     <div style={{ display: 'flex', gap: '10px' }}>
                         <div className={style.bluediv}>Start Searching</div>
-                        <div className={`${mode ? style.whitedivdark : style.whitedivlight}`}>View Pricing</div>
+                        <div onClick={handleScroll} className={`${mode ? style.whitedivdark : style.whitedivlight}`}>View Pricing</div>
                     </div>
                 </div>
                 <div className={`${mode ? style.introdark : style.introlight}`}>

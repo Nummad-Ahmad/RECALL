@@ -3,6 +3,7 @@ import Logo from './images/chatbot.jpg';
 import { useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function App() {
     const [email, setEmail] = useState('');
@@ -24,8 +25,10 @@ export default function App() {
         }
     }
 
+    const mode = useSelector((state) => state.mode.value);
+    const dispatch = useDispatch();
     return (
-        <div className={style.App}>
+        <div className={`${mode ? style.Appdark : style.Applight}`}>
         <Toaster />
             <div className={style.container}>
 

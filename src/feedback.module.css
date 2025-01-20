@@ -4,7 +4,7 @@
     margin: 0px;
     display: flex;
     flex-direction: column;
-    background-color: rgb(220, 220, 220);
+    background-color: rgb(242, 242, 242);
 }
 .contactdark{
     width: 100%;
@@ -30,7 +30,7 @@
     padding: 0px 50px;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(220, 220, 220);
+    background-color: rgb(242, 242, 242);
     color: black;
 }
 .options{

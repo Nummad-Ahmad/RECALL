@@ -38,9 +38,8 @@ export default function Home() {
         });
     };
     function get(){
-        console.log('res');
         axios.get('https://recallbackend.vercel.app/').
-                            then(res => console.log('res', res)).
+                            then(res => console.log('API response', res)).
                             catch(e => {
                                 console.log(e);
                             })

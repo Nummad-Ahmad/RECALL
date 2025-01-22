@@ -218,10 +218,10 @@
         flex-direction: column;
         }
         .tabledark{
-            height: 80%;
+            height: 70%;
         }
         .tablelight{
-            height: 80%;
+            height: 70%;
         }
 }
 @media(max-width: 700px){

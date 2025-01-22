@@ -52,10 +52,10 @@
 
 .contentcontainer {
     height: calc(100vh - 70px);
+    margin-top: 10px;
     width: 100%;
     display: flex;
     align-items: center;
-    /* justify-content: center; */
     flex-direction: column;
 }
 

@@ -200,25 +200,25 @@ export default function Guidelines() {
                                 <div className={style.option}>Action</div>
                             </div>
                             <div className={style.mobilecontent}>
-                                    {
-                                        data.map(item => {
-                                            return (
-                                                <div className={`${mode ? style.mobiletablecontentdark : style.mobiletablecontentlight}`}>
-                                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                                                        <p style={{ margin: '0px', fontFamily: 'sans-serif', fontWeight: 'bold', fontSize: '18px' }}>{item.title}</p>
-                                                        <p style={{ margin: '0px', fontFamily: 'sans-serif' }}>{item['Date Uploaded']}</p>
-                                                    </div>
-                                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                                                        <p style={{ margin: '0px', fontFamily: 'sans-serif' }}>{item.Status}</p>
-                                                        <div className={style.option}>
-                                                            <MdOutlineDelete size={20} color={`${mode ? 'white' : 'black'}`} />
-                                                        </div>
-                                                    </div>
-                                                    
+                                {
+                                    data.map(item => {
+                                        return (
+                                            <div className={`${mode ? style.mobiletablecontentdark : style.mobiletablecontentlight}`}>
+                                                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                                                    <p style={{ margin: '0px', fontFamily: 'sans-serif', fontWeight: 'bold', fontSize: '18px' }}>{item.title}</p>
+                                                    <p style={{ margin: '0px', fontFamily: 'sans-serif' }}>{item['Date Uploaded']}</p>
                                                 </div>
-                                                    )
+                                                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                                                    <p style={{ margin: '0px', fontFamily: 'sans-serif' }}>{item.Status}</p>
+                                                    <div className={style.option}>
+                                                        <MdOutlineDelete size={20} color={`${mode ? 'white' : 'black'}`} />
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        )
                                     })
-                                    }
+                                }
                             </div>
                             {
                                 data.map((item, index) => {

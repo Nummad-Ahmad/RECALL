@@ -239,7 +239,7 @@ export default function Guidelines() {
                             }
                         </div>
                         <div className={`${mode ? style.buttonsdivdark : style.buttonsdivlight}`}>
-                            <p>Total {data.length} guidelines</p>
+                            <p>Total <span style={{fontWeight: 'bold'}}>{data.length}</span> guidelines</p>
                             <button className={`${mode ? style.btndark : style.btnlight}`}>Add</button>
                         </div>
                     </div>

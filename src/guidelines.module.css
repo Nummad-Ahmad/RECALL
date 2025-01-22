@@ -217,9 +217,12 @@
         width: 100%;
         flex-direction: column;
         }
-    .contentcontainer{
-        height: 100vh;
-    }
+        .tabledark{
+            height: 90%;
+        }
+        .tablelight{
+            height: 90%;
+        }
 }
 @media(max-width: 700px){
     .navbardark{

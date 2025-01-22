@@ -252,9 +252,11 @@
 
     .tabledark {
         height: 90%;
+        width: 90%;
     }
 
     .tablelight {
+        width: 90%;
         height: 90%;
     }
 }

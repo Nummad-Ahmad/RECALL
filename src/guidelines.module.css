@@ -217,7 +217,9 @@
         width: 100%;
         flex-direction: column;
         }
-        
+    .contentcontainer{
+        height: 500px;
+    }
 }
 @media(max-width: 700px){
     .navbardark{

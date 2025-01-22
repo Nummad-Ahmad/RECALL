@@ -37,12 +37,12 @@ export default function Home() {
             behavior: 'smooth', // Smooth scrolling
         });
     };
-    function get(){
+    function get() {
         axios.get('https://recallbackend.vercel.app/').
-                            then(res => console.log('API response', res)).
-                            catch(e => {
-                                console.log(e);
-                            })
+            then(res => console.log('API response', res)).
+            catch(e => {
+                console.log(e);
+            })
     }
     return (
         <div className={`${mode ? style.homedark : style.homelight}`}>
@@ -61,7 +61,7 @@ export default function Home() {
                     <div className={style.options}>
                         <p onClick={() => navigate('/chat')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Search</p>
                         <p onClick={() => navigate('/feedback')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Feedback</p>
-                        <p onClick={() => handleScroll()} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Pricing</p>
+                        <p onClick={() => navigate('/guidelines')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Guidelines</p>
                         <div style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '5px' }} onClick={() => navigate('/')}>
                             <FiLogIn size={20} color={`${!mode ? 'rgb(17, 24, 38)' : 'white'}`} />
                             <p style={{ margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Sign in</p>
@@ -88,7 +88,7 @@ export default function Home() {
 
                         <p onClick={() => navigate('/feedback')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Feedback</p>
                         <p style={{ cursor: 'pointer' }} onClick={() => { navigate('/chat'); setClicked(false) }}>Search</p>
-                        <p onClick={() => handleScroll()} style={{ cursor: 'pointer' }}>Pricing</p>
+                        <p onClick={() => navigate('/guidelines')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Guidelines</p>
                         <p style={{ cursor: 'pointer' }} onClick={() => { navigate('/'); setClicked(false) }}>Sign in</p>
                         <div style={{ cursor: 'pointer' }} onClick={() => { handleClick(); setClicked(false) }}>
                             {
@@ -112,9 +112,9 @@ export default function Home() {
                         touchAction: 'manipulation',
                         webkitUserSelect: 'none',
                         msUserSelect: 'none'
-                    }} l>Get instant, accurate answers with citations from trusted sources</p>
+                    }}>Get instant, accurate answers with citations from trusted sources</p>
                     <div style={{ display: 'flex', gap: '10px' }}>
-                        <div onClick={()=>{
+                        <div onClick={() => {
                             get()
                         }} className={style.bluediv}>Start Searching </div>
                         <div onClick={handleScroll} className={`${mode ? style.whitedivdark : style.whitedivlight}`}>View Pricing</div>

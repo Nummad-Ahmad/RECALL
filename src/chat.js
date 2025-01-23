@@ -180,7 +180,7 @@ export default function Chat() {
                     <iframe 
                         className={style.iframe} 
                         // src="https://app.vectorshift.ai/chatbots/deployed/6791eb9f7f0fbe854d4f0ba9" 
-                        src="https://app.vectorshift.ai/chatbots/deployed/6791eb9f7f0fbe854d4f0ba9"
+                        src="https://app.vectorshift.ai/search/deployed/6779c2327d14ae7a12a44e15"
                         style={{
 
                         }}

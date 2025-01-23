@@ -122,167 +122,78 @@
 
 
 
-import { useEffect, useState } from 'react';
-import style from './chat.module.css';
-import { MdLightMode } from "react-icons/md";
-import { MdDarkMode } from "react-icons/md";
-import { useSelector, useDispatch } from 'react-redux';
-import { toggleMode } from './redux/slices';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import style from './chat.module.css'; 
+import { MdLightMode } from "react-icons/md"; 
+import { MdDarkMode } from "react-icons/md"; 
+import { useSelector, useDispatch } from 'react-redux'; 
+import { toggleMode } from './redux/slices'; 
+import axios from 'axios'; 
+import { useNavigate } from 'react-router-dom';  
 
-export default function Chat() {
-    const navigate = useNavigate();
-    const mode = useSelector((state) => state.mode.value);
-    const dispatch = useDispatch();
+export default function Chat() { 
+    const navigate = useNavigate(); 
+    const mode = useSelector((state) => state.mode.value); 
+    const dispatch = useDispatch(); 
 
+    function handleClick() { 
+        dispatch(toggleMode()); 
+        localStorage.setItem('isOn', JSON.stringify(mode)); 
+    } 
 
-    // const url = 'https://chat.botpress.cloud/f1984cf2-0a55-4199-9e76-f6a6e2fc36b5/conversations/convo-1/messages';
-    // const options = { method: 'GET', headers: { accept: 'application/json', 'x-user-key': 'Nummad1' } };
+    const h1Style = { 
+        cursor: 'pointer', 
+        margin: '0px', 
+        fontSize: '18px', 
+        fontFamily: 'sans-serif', 
+        display: 'inline', 
+        color: mode ? 'white' : 'black', 
+    }; 
 
-    // fetch(url, options)
-    //     .then(res => res.json())
-    //     .then(json => console.log('json', json))
-    //     .catch(err => console.error(err));
+    return ( 
+        <div className={`${!mode ? style.homelight : style.homedark}`}> 
+            <div className={style.chat}> 
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}> 
+                    <h1 style={h1Style}>Recall</h1> 
+                    <div className={style.topmenu}> 
+                        <div style={{ 
+                            cursor: 'pointer', 
+                            margin: '0px', 
+                            fontSize: '18px', 
+                            fontFamily: 'sans-serif', 
+                            display: 'inline', 
+                            color: mode ? 'white' : 'black', 
+                        }} 
+                        onClick={() => navigate('/home')}> 
+                            Home 
+                        </div> 
+                        <p style={h1Style}>About</p> 
+                        <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }} onClick={() => handleClick()}> 
+                            { 
+                                mode ? 
+                                    <MdLightMode size={20} color={`${mode ? 'white' : 'black'}`} /> : 
+                                    <MdDarkMode size={20} color={`${mode ? 'white' : 'black'}`} /> 
+                            } 
+                        </div> 
+                    </div> 
+                </div> 
+                <div style={{ height: '99%' }}> 
+                    <iframe 
+                        className={style.iframe} 
+                        // src="https://app.vectorshift.ai/chatbots/deployed/6791eb9f7f0fbe854d4f0ba9" 
+                        src="https://app.vectorshift.ai/chatbots/deployed/6791eb9f7f0fbe854d4f0ba9"
+                        style={{
 
-    // const [messages, setMessages] = useState([]);
-    // const [isOn, setIsOn] = useState(true);
-    // const [message, setMessage] = useState({ type: 'question', content: '' });
-
-    // const addMessage = async () => {
-    //     fetch(url, options)
-    //         .then(res => res.json())
-    //         .then(json => console.log('json', json))
-    //         .catch(err => console.error('error', err));
-    //     if (!message.content.trim()) return;
-
-    //     const userMessage = { type: 'question', content: message.content };
-    //     setMessages((prevMessages) => [...prevMessages, userMessage]);
-
-    //     setMessage({ type: 'question', content: '' });
-
-    //     await sendMessageToBot(userMessage.content);
-    // };
-
-    // const sendMessageToBot = async (userMessage) => {
-    //     console.log(userMessage);
-    //     try {
-    //         const response = await axios.post('http://localhost:3000/send', { userMessage });
-    //         setMessages((prevMessages) => [
-    //             ...prevMessages,
-    //             { type: 'answer', content: response.data },
-    //         ]);
-    //     } catch (error) {
-    //         console.error('Error fetching data:', error);
-    //         setMessages((prevMessages) => [
-    //             ...prevMessages,
-    //             { type: 'answer', content: 'Unable to connect to the bot. Please try again later.' },
-    //         ]);
-    //     }
-    // };
-
-    // useEffect(() => {
-    //     const storedValue = JSON.parse(localStorage.getItem('isOn'));
-    //     if (storedValue) {
-    //         dispatch(toggleMode());
-    //     }
-    //     console.log("mode", mode);
-    // }, []);
-    function handleClick() {
-        dispatch(toggleMode());
-        localStorage.setItem('isOn', JSON.stringify(mode));
-    }
-    const h1Style = {
-        cursor: 'pointer',
-        margin: '0px',
-        fontSize: '18px',
-        fontFamily: 'sans-serif',
-        display: 'inline',
-        color: mode ? 'white' : 'black',
-    };
-
-    return (
-        <div className={`${!mode ? style.homelight : style.homedark}`}>
-            <div className={style.chat}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <h1 style={h1Style}>Recall</h1>
-                    <div className={style.topmenu}>
-                        <div style={{
-                            cursor: 'pointer',
-                            margin: '0px',
-                            fontSize: '18px',
-                            fontFamily: 'sans-serif',
-                            display: 'inline',
-                            color: mode ? 'white' : 'black',
-                        }} onClick={() => navigate('/home')}>
-                            Home
-                        </div>
-                        <p style={h1Style}>About</p>
-                        <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }} onClick={() => handleClick()}>
-                            {/* <MdLightMode size={20} color={`${isOn ? 'white' : 'black'}`} />
-                            <div className={`${isOn ? style.switchon : style.switchoff}`} onClick={() => setIsOn(!isOn)}>
-                                <div className={`${isOn ? style.ballon : style.balloff}`} />
-                            </div>
-                            <MdDarkMode size={20} color={`${isOn ? 'white' : 'black'}`} /> */}
-                            {
-                                mode ?
-                                    <MdLightMode size={20} color={`${mode ? 'white' : 'black'}`} /> :
-                                    <MdDarkMode size={20} color={`${mode ? 'white' : 'black'}`} />
-                            }
-                        </div>
-                    </div>
-                </div>
-                {/* <div className={`${!isOn ? style.lightchatsection : style.darkchatsection}`}>
-                    <div className={style.messages}>
-                        {messages.length > 0 ? (
-                            messages.map((item, index) => (
-                                <div
-                                    key={index}
-                                    style={{
-                                        display: 'flex',
-                                        justifyContent: item.type === 'question' ? 'flex-end' : 'flex-start',
-                                    }}
-                                >
-                                    <div className={item.type === 'question' ? style.question : style.answer}>
-                                        <p style={{ fontFamily: 'sans-serif', fontSize: '15px' }}>{item.content}</p>
-                                    </div>
-                                </div>
-                            ))
-                        ) : (
-                            <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column' }}>
-                                <div style={{ display: 'flex', alignItems: 'start' }}>
-                                    <h1 className={`${!isOn ? style.darkrecall : style.lightrecall}`}>RECALL</h1>
-                                    <p className={`${isOn ? style.betalight : style.betadark}`}>Beta</p>
-                                </div>
-                                <p className={`${!isOn ? style.onlycellsdark : style.onlycellslight}`}>By only cells</p>
-                            </div>
-                        )}
-                    </div>
-                    <div className={style.inputDiv}>
-                        <input
-                            value={message.content}
-                            placeholder="Search the guidelines"
-                            className={`${isOn ? style.darkinput : style.lightinput}`}
-                            onChange={(e) => setMessage({ type: 'question', content: e.target.value })}
-                            onKeyDown={(e) => e.key === 'Enter' && addMessage()}
-                        />
-                        <div onClick={addMessage}>
-                            <FaRegArrowAltCircleUp size={25} color={`${isOn ? 'white' : 'black'}`} />
-                        </div>
-                    </div>
-                </div> */}
-                <div style={{ height: '99%' }}>
-                    <iframe
-                        className={style.iframe}
-                        src="https://app.vectorshift.ai/search/deployed/6779c2327d14ae7a12a44e15"
-                        allow="clipboard-read; clipboard-write"
-                        title="VectorShift Iframe"
-                    />
-                </div>
-            </div>
-        </div>
-    );
+                        }}
+                    allow="clipboard-read; clipboard-write; microphone" 
+                    title="Chatbot" 
+                    /> 
+                </div> 
+  
+            </div> 
+        </div> 
+    ); 
 }
+
 
 
 

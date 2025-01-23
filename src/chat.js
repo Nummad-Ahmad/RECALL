@@ -194,6 +194,7 @@ export default function Chat() {
     borderRadius: '10px',
     width: '100%',
     height: '600px',
+    overflowX :'auto'
   }}
   allow="clipboard-read; clipboard-write"
 />

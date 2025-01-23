@@ -177,14 +177,27 @@ export default function Chat() {
                     </div> 
                 </div> 
                 <div style={{ height: '99%' }}> 
-                    <iframe 
+                    {/* <iframe 
                         className={style.iframe} 
+                        width='90%'
+                        height='100%'
                         // src="https://app.vectorshift.ai/chatbots/deployed/6791eb9f7f0fbe854d4f0ba9" 
                         // src="https://app.vectorshift.ai/search/deployed/6779c2327d14ae7a12a44e15"
                         src="https://app.vectorshift.ai/search/deployed/6779c2327d14ae7a12a44e15"
                     allow="clipboard-read; clipboard-write; microphone" 
                     title="Chatbot" 
-                    /> 
+                    />  */}
+                    <iframe
+  src="https://app.vectorshift.ai/search/deployed/6779c2327d14ae7a12a44e15"
+  style={{
+    border: '2px solid #ccc',
+    borderRadius: '10px',
+    width: '100%',
+    height: '600px',
+  }}
+  allow="clipboard-read; clipboard-write"
+/>
+
                 </div> 
   
             </div> 

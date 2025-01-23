@@ -261,11 +261,11 @@
         border: none;
         width: 100%;
         height: 88%;
-
     }
     .chatsection{        
         margin-bottom: 10px;
         overflow-y: auto;
+        overflow-x: auto;
     }
     /* .citations{
         height: 300px;

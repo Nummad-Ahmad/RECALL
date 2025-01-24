@@ -3,13 +3,13 @@ import Logo from './images/chatbot.jpg';
 import { useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import axios from 'axios';
 
 export default function App() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isLogin, setLogin] = useState(true);
-    const [forgotPasswordClicked, setCLicked] = useState(false);
     const navigate = useNavigate();
     function handlePassword(e){
         setPassword(e.target.value);
@@ -17,24 +17,32 @@ export default function App() {
     function handleEmail(e){
         setEmail(e.target.value);
     }
-    function Navigation(){
-        if(email == 'admin@gmail.com' && password == '1admin23'){
-            navigate('/home');
+    function submit(){
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    var valid = emailRegex.test(email);
+        if(valid && password.length > 7){
+        if(isLogin){
+            axios.post(`https://recallbackend.vercel.app/login`, {email, password}).then(result => {
+                toast.success('Login successful');
+                navigate('/home');
+            }).catch(error => toast.error(error.response.data.error));
         }else{
-            toast.error("Invalid email or password ");
+            axios.post(`https://recallbackend.vercel.app/signup`, {email, password}).then(result => {
+                toast.success('Account created');
+                setLogin(true);
+            }).catch(error => toast.error(error.response.data.error));
         }
+    }else if(!valid){
+        toast.error('Invalid email');
+    }else{
+        toast.error('Minimum password length is 8');
     }
-
+}
     const mode = useSelector((state) => state.mode.value);
-    const dispatch = useDispatch();
     return (
         <div className={`${mode ? style.Appdark : style.Applight}`}>
         <Toaster />
             <div className={style.container}>
-
-                {/* <div className={style.imgsection}>
-                    <img src={Cartoon} />
-                </div> */}
                 <div className={style.formsection}>
                     <div className={style.form}>
                         <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -52,7 +60,7 @@ export default function App() {
                                 }
                             </p>
                         </div>
-                        <button className={style.btn} onClick={()=> Navigation()}>
+                        <button className={style.btn} onClick={()=> {submit()}}>
                             {
                                 (!isLogin) ?
                                     'Sign up' : 'Login'

@@ -35,7 +35,7 @@ export default function Contact() {
     return (
         <div className={`${mode ? style.contactdark : style.contactlight}`}>
             <div style={{ display: 'flex', alignSelf: 'center', justifySelf: 'center', flexDirection: 'column', width: '100%', maxWidth: '1400px' }}>
-                <div className={`${mode ? style.navbardark : style.navbarlight}`}>
+            <div className={`${mode ? style.navbardark : style.navbarlight}`}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                         <FaSearch size={20} color={`${!mode ? 'rgb(17, 24, 38)' : 'white'}`} />
                         <p style={{
@@ -47,8 +47,10 @@ export default function Contact() {
                         }}>RECALL</p>
                     </div>
                     <div className={style.options}>
-                        <p onClick={() => navigate('/home')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Home</p>
+                    <p onClick={() => navigate('/home')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Home</p>
                         <p onClick={() => navigate('/chat')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Search</p>
+                        <p onClick={() => navigate('/feedback')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Feedback</p>
+                        <p onClick={() => navigate('/guidelines')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Guidelines</p>
                         {/* <div style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '5px' }} onClick={() => navigate('/')}>
                             <FiLogIn size={20} color={`${!mode ? 'rgb(17, 24, 38)' : 'white'}`} />
                             <p style={{ margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Sign in</p>
@@ -72,8 +74,10 @@ export default function Contact() {
                 {
                     clicked &&
                     <div className={`${mode ? style.menudark : style.menulight}`}>
-                        <p onClick={() => navigate('/home')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Home</p>
-                        <p style={{ cursor: 'pointer' }} onClick={() => { navigate('/chat'); setClicked(false) }}>Search</p>
+                    <p onClick={() => navigate('/home')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Home</p>
+                        <p onClick={() => navigate('/chat')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Search</p>
+                        <p onClick={() => navigate('/feedback')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Feedback</p>
+                        <p onClick={() => navigate('/guidelines')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Guidelines</p>
                         {/* <p style={{ cursor: 'pointer' }} onClick={() => { navigate('/'); setClicked(false) }}>Sign in</p> */}
                         <div style={{ cursor: 'pointer' }} onClick={() => { handleClick(); setClicked(false) }}>
                             {

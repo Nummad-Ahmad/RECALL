@@ -52,6 +52,7 @@ export default function Home() {
                         }}>RECALL</p>
                     </div>
                     <div className={style.options}>
+                        <p onClick={() => navigate('/home')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Home</p>
                         <p onClick={() => navigate('/chat')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Search</p>
                         <p onClick={() => navigate('/feedback')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Feedback</p>
                         <p onClick={() => navigate('/guidelines')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Guidelines</p>
@@ -78,9 +79,9 @@ export default function Home() {
                 {
                     clicked &&
                     <div className={`${mode ? style.menudark : style.menulight}`}>
-
+                        <p onClick={() => navigate('/home')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Home</p>
+                        <p onClick={() => navigate('/chat')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Search</p>
                         <p onClick={() => navigate('/feedback')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Feedback</p>
-                        <p style={{ cursor: 'pointer' }} onClick={() => { navigate('/chat'); setClicked(false) }}>Search</p>
                         <p onClick={() => navigate('/guidelines')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Guidelines</p>
                         {/* <p style={{ cursor: 'pointer' }} onClick={() => { navigate('/'); setClicked(false) }}>Sign in</p> */}
                         <div style={{ cursor: 'pointer' }} onClick={() => { handleClick(); setClicked(false) }}>

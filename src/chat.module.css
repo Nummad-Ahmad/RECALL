@@ -1,29 +1,35 @@
-.homelight{
+.homelight {
     height: 100vh;
     width: 100%;
     display: flex;
-    /* background-color: rgb(27, 29, 33); */
     justify-content: center;
     background-image: url('./images/bg.jpg');
     box-sizing: border-box;
-    
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center
 }
-.homedark{
+
+.homedark {
     height: 100vh;
     width: 100%;
     display: flex;
-    /* background-color: rgb(27, 29, 33); */
     justify-content: center;
-    background-image: url('./images/bgdark.png');
+    background-image: url('./images/bgdark.jpg');
     box-sizing: border-box;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center
 }
-.citations{
+
+.citations {
     height: 100%;
     width: 50%;
     padding: 20px;
     box-sizing: border-box;
 }
-.original{
+
+.original {
     width: 100%;
     margin: 20px 0px;
     height: 93%;
@@ -34,11 +40,13 @@
     box-sizing: border-box;
     overflow-y: auto;
 }
-.orginaltext{
+
+.orginaltext {
     margin: 0px;
     font-family: sans-serif;
 }
-.chat{
+
+.chat {
     height: 100%;
     width: 90%;
     max-width: 1600px;
@@ -46,7 +54,8 @@
     box-sizing: border-box;
     gap: 20px;
 }
-.iframe{
+
+.iframe {
     width: 100%;
     height: 97%;
     border: none;
@@ -54,10 +63,12 @@
     margin-top: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
-.h1{
+
+.h1 {
     font-size: 20px;
 }
-.darkchatsection{
+
+.darkchatsection {
     width: 100%;
     margin: 20px 0px;
     height: 95%;
@@ -65,13 +76,13 @@
     background-color: #474747;
     border-radius: 10px;
     padding: 20px;
-    box-sizing: border-box;    
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.lightchatsection{
+.lightchatsection {
     width: 100%;
     margin: 20px 0px;
     height: 95%;
@@ -79,12 +90,13 @@
     background-color: #b3b3b3;
     border-radius: 10px;
     padding: 20px;
-    box-sizing: border-box;    
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
-.messages{
+
+.messages {
     width: 100%;
     height: 90%;
     overflow-y: auto;
@@ -92,7 +104,8 @@
     flex-direction: column;
     gap: 10px;
 }
-.question{
+
+.question {
     display: flex;
     background-color: rgb(27, 29, 33);
     color: white;
@@ -104,7 +117,8 @@
     box-sizing: border-box;
     margin: 0px 10px;
 }
-.answer{
+
+.answer {
     display: flex;
     background-color: rgb(27, 29, 33);
     color: white;
@@ -116,32 +130,37 @@
     box-sizing: border-box;
     margin: 0px 15px;
 }
-.question p{
+
+.question p {
     margin: 0px;
     font-size: 14px;
 }
-.answer p{
+
+.answer p {
     margin: 0px;
     font-size: 14px;
 }
-.inputDiv{
-    border: 1px solid rgb(0,0,0);
+
+.inputDiv {
+    border: 1px solid rgb(0, 0, 0);
     border-radius: 50px;
-    height: 40px;   
+    height: 40px;
     padding: 0px 10px;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.darkinput{
+
+.darkinput {
     background-color: #474747;
     border: none;
     width: 100%;
     outline: none;
     color: white;
 }
-.lightinput{
+
+.lightinput {
     background-color: #b3b3b3;
     border: none;
     width: 100%;
@@ -151,9 +170,11 @@
 
 .input::placeholder {
     font-size: 14px;
-    color: rgb(200, 200, 200);  /* Light gray color for placeholder */
-  }
-.switchoff{
+    color: rgb(200, 200, 200);
+    /* Light gray color for placeholder */
+}
+
+.switchoff {
     width: 40px;
     height: 22px;
     background-color: black;
@@ -162,7 +183,8 @@
     align-items: center;
     cursor: pointer;
 }
-.switchon{
+
+.switchon {
     width: 40px;
     height: 22px;
     background-color: white;
@@ -172,101 +194,119 @@
     justify-content: end;
     cursor: pointer;
 }
-.balloff{
+
+.balloff {
     background-color: white;
     width: 20px;
     height: 20px;
     margin: 0px 2px;
     border-radius: 50%;
 }
-.ballon{
+
+.ballon {
     background-color: black;
     width: 20px;
     height: 20px;
     margin: 0px 2px;
     border-radius: 50%;
 }
-.darkrecall{
+
+.darkrecall {
     color: black;
     margin: 0px;
     font-size: 35px;
     font-family: sans-serif;
 }
-.lightrecall{
+
+.lightrecall {
     color: white;
     margin: 0px;
     font-size: 35px;
     font-family: sans-serif;
 }
-.betalight{
+
+.betalight {
     margin: 0px;
     color: white;
     font-size: 12px;
 }
-.betadark{
+
+.betadark {
     margin: 0px;
     color: black;
     font-size: 12px;
 }
-.onlycellslight{
+
+.onlycellslight {
     margin: 0px;
     color: white;
     font-size: 12px;
 }
-.onlycellsdark{
+
+.onlycellsdark {
     margin: 0px;
     color: black;
     font-size: 12px;
 }
-.topmenu{
+
+.topmenu {
     display: flex;
     gap: 30px;
     align-items: center;
 }
 
 ::-webkit-scrollbar {
-    width: 8px; /* width of the scrollbar */
-    height: 10px; /* height for horizontal scrollbar */
+    width: 8px;
+    /* width of the scrollbar */
+    height: 10px;
+    /* height for horizontal scrollbar */
     margin-left: 30px;
 }
-  
-  /* Target the track (the area the thumb slides within) */
-  ::-webkit-scrollbar-track {
-    background-color: #474747;/* light gray background */
-    border-radius: 10px;
-  }
-  
-  /* Target the thumb (the draggable part of the scrollbar) */
-  ::-webkit-scrollbar-thumb {
-    background-color: #888; /* dark gray */
-    border-radius: 10px;
-    border: none/* optional: gives a border around the thumb */
-  }
-  
-  /* Hover state for the thumb */
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: #777; /* darker gray when hovering */
-  }
-  
 
-@media(max-width: 700px){
-    .home{
+/* Target the track (the area the thumb slides within) */
+::-webkit-scrollbar-track {
+    background-color: #474747;
+    /* light gray background */
+    border-radius: 10px;
+}
+
+/* Target the thumb (the draggable part of the scrollbar) */
+::-webkit-scrollbar-thumb {
+    background-color: #888;
+    /* dark gray */
+    border-radius: 10px;
+    border: none
+        /* optional: gives a border around the thumb */
+}
+
+/* Hover state for the thumb */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #777;
+    /* darker gray when hovering */
+}
+
+
+@media(max-width: 700px) {
+    .home {
         flex-direction: column;
         /* height: 100%; */
         /* height: 100%; */
     }
-    .chat{
+
+    .chat {
         padding: 5px;
         padding-top: 20px;
         border: none;
         width: 100%;
         height: 88%;
     }
-    .chatsection{        
+
+    .chatsection {
         margin-bottom: 10px;
         overflow-y: auto;
         overflow-x: auto;
     }
+
     /* .citations{
         height: 300px;
         width: 100%;
@@ -277,10 +317,11 @@
         height: 150px;
         overflow-y: auto;
     } */
-    .topmenu{
+    .topmenu {
         gap: 10px;
     }
-    .h1{
+
+    .h1 {
         font-size: 12px;
     }
 }

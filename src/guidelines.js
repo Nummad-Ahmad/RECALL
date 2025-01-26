@@ -213,7 +213,7 @@ export default function Guidelines() {
                                     <MdDarkMode color='rgb(17, 24, 38)' size={30} /> :
                                     <MdLightMode color='white' size={30} />
                             }
-                            <p style={{ cursor: 'pointer', margin: '0px', fontSize: '30px', fontFamily: 'sans-serif' }}>Toggle mode</p>
+                            <p style={{ cursor: 'pointer', margin: '0px', fontSize: '30px', fontFamily: 'sans-serif' }}>{!mode ? 'Dark' : 'Light'} mode</p>
                         </div>
                         <div onClick={() => setClicked(!clicked)} style={{ display: 'flex', width: '100%', gap: '30px', paddingLeft: '40px', justifyContent: 'center' }}>
                             <IoMdClose size={30} color={`${mode ? 'white' : 'black'}`} />

@@ -43,10 +43,10 @@ export default function Home() {
         if (clicked) {
             document.body.style.overflow = 'hidden';
         } else {
-            document.body.style.overflow = 'visible'; 
+            document.body.style.overflow = 'visible';
         }
         return () => {
-            document.body.style.overflow = 'visible'; 
+            document.body.style.overflow = 'visible';
         };
     }, [clicked]);
     return (

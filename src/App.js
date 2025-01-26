@@ -10,6 +10,7 @@ export default function App() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isLogin, setLogin] = useState(true);
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     function handlePassword(e) {
         setPassword(e.target.value);
@@ -21,21 +22,42 @@ export default function App() {
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         var valid = emailRegex.test(email);
         if (valid && password.length > 7) {
+            setLoading(true);
             if (isLogin) {
                 axios.post(`https://recallbackend.vercel.app/login`, { email, password }).then(result => {
                     toast.success('Login successful');
                     navigate('/home');
-                }).catch(error => toast.error(error.response.data.error));
+                }).catch(error => {
+                    const errorMessage = error?.response?.data?.error || 'Something went wrong!';
+                    toast.error(errorMessage);
+                    setLoading(false);
+                });
             } else {
                 axios.post(`https://recallbackend.vercel.app/signup`, { email, password }).then(result => {
                     toast.success('Account created');
+                    setLoading(false);
                     setLogin(true);
-                }).catch(error => toast.error(error.response.data.error));
+                }).catch(error => {
+                    const errorMessage = error?.response?.data?.error || 'Something went wrong!';
+                    toast.error(errorMessage);
+                    setLoading(false);
+                });
             }
         } else if (!valid) {
             toast.error('Invalid email');
         } else {
             toast.error('Minimum password length is 8');
+        }
+    }
+    function textFunction() {
+        if (loading && isLogin) {
+            return 'Signing in';
+        } else if (loading && !isLogin) {
+            return 'Signing up';
+        } else if (!loading && isLogin) {
+            return 'Login';
+        } else if (!loading && !isLogin) {
+            return 'Sign up';
         }
     }
     const mode = useSelector((state) => state.mode.value);
@@ -62,8 +84,7 @@ export default function App() {
                         </div>
                         <button className={style.btn} onClick={() => { submit() }}>
                             {
-                                (!isLogin) ?
-                                    'Sign up' : 'Login'
+                                textFunction()
                             }
                         </button>
                     </div>

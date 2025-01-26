@@ -1,4 +1,4 @@
-.contactlight{
+.contactlight {
     width: 100%;
     height: 100vh;
     margin: 0px;
@@ -6,7 +6,8 @@
     flex-direction: column;
     background-color: rgb(242, 242, 242);
 }
-.contactdark{
+
+.contactdark {
     width: 100%;
     height: 100vh;
     margin: 0px;
@@ -14,6 +15,7 @@
     flex-direction: column;
     background-color: rgba(17, 24, 38, 1);
 }
+
 .navbardark {
     display: flex;
     height: 70px;
@@ -33,15 +35,18 @@
     background-color: rgb(242, 242, 242);
     color: black;
 }
-.options{
+
+.options {
     display: flex;
     align-items: center;
-    gap: 20px; 
+    gap: 20px;
 }
-.menuicon{
+
+.menuicon {
     display: none;
 }
-.menu{
+
+.menu {
     display: none;
 }
 
@@ -54,33 +59,38 @@
     box-sizing: border-box;
     justify-self: center;
 }
-.leftcontainer{
+
+.leftcontainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 50px;
     width: 50%;
 }
-.img{
+
+.img {
     min-width: 300px;
     width: 70%;
     max-width: 400px;
     margin: 0px;
 }
-.rightcontainer{
+
+.rightcontainer {
     display: flex;
     flex-direction: column;
     width: 50%;
     padding-right: 50px;
     box-sizing: border-box;
 }
-.heading{
+
+.heading {
     font-weight: bold;
     color: rgb(3, 34, 75);
     font-size: 25px;
     margin: 20px 0px;
 }
-.input{
+
+.input {
     padding: 0px;
     background-color: rgb(255, 255, 255, 0);
     padding-bottom: 10px;
@@ -89,21 +99,22 @@
     font-size: 16px;
     transition: background-color 5000s ease-in-out;
 
-  }
-  
-  .input:focus{
+}
+
+.input:focus {
     outline: none;
-  }
-  
-  .input:-webkit-autofill{
+}
+
+.input:-webkit-autofill {
     background-color: transparent !important;
-  }
-  
-  .input::placeholder{
+}
+
+.input::placeholder {
     font-size: 16px;
     padding-bottom: 0.3rem;
-  }
-  .btn{
+}
+
+.btn {
     border: none;
     background-color: rgb(3, 34, 75);
     color: white;
@@ -114,39 +125,49 @@
     padding: 10px 0px;
     margin: 20px 0px;
     font-size: 18px;
-  }
-  @media(max-width: 950px){
-    .leftcontainer{
+}
+
+@media(max-width: 950px) {
+    .leftcontainer {
         width: 300px;
     }
-    .rightcontainer{
+
+    .rightcontainer {
         width: calc(100vw - 300px);
         padding: 0px;
     }
-  }
-@media(max-width: 700px){
+}
+
+@media(max-width: 700px) {
     .container {
         padding: 10px 50px;
     }
-    .leftcontainer{
+
+    .leftcontainer {
         display: none;
     }
-    .rightcontainer{
+
+    .rightcontainer {
         width: 100%;
     }
-    .navbardark{
+
+    .navbardark {
         padding: 0px 20px;
     }
-    .navbarlight{
+
+    .navbarlight {
         padding: 0px 20px;
     }
-    .options{
+
+    .options {
         display: none;
     }
-    .menuicon{
+
+    .menuicon {
         display: inline;
     }
-    .menulight{
+
+    .menulight {
         display: flex;
         align-items: center;
         justify-content: space-around;
@@ -154,12 +175,14 @@
         top: 70;
         height: 50px;
         width: 100%;
-        background-color: rgba(31, 41, 54, 0.1);;
+        background-color: rgba(31, 41, 54, 0.1);
+        ;
         font-family: sans-serif;
         font-size: 18px;
         color: dark;
     }
-    .menudark{
+
+    .menudark {
         display: flex;
         align-items: center;
         justify-content: space-around;

@@ -191,23 +191,23 @@ export default function Guidelines() {
                 {
                     clicked &&
                     <div className={`${mode ? style.menudark : style.menulight}`}>
-                        <div onClick={() => navigate('/home')} style={{ display: 'flex', width: '100%', gap: '30px', paddingLeft: '40px', justifyContent: 'center' }}>
+                        <div onClick={() => navigate('/home')} style={{ display: 'flex', width: '100%', gap: '30px', justifyContent: 'center' }}>
                             <IoHomeOutline size={30} color={`${mode ? 'white' : 'black'}`} />
                             <p style={{ cursor: 'pointer', margin: '0px', fontSize: '30px', fontFamily: 'sans-serif' }}>Home</p>
                         </div>
-                        <div onClick={() => navigate('/chat')} style={{ display: 'flex', width: '100%', gap: '30px', paddingLeft: '40px', justifyContent: 'center' }}>
+                        <div onClick={() => navigate('/chat')} style={{ display: 'flex', width: '100%', gap: '30px', justifyContent: 'center' }}>
                             <IoIosSearch size={30} color={`${mode ? 'white' : 'black'}`} />
                             <p style={{ cursor: 'pointer', margin: '0px', fontSize: '30px', fontFamily: 'sans-serif' }}>Search</p>
                         </div>
-                        <div onClick={() => navigate('/feedback')} style={{ display: 'flex', width: '100%', gap: '30px', paddingLeft: '40px', justifyContent: 'center' }}>
+                        <div onClick={() => navigate('/feedback')} style={{ display: 'flex', width: '100%', gap: '30px', justifyContent: 'center' }}>
                             <FaRegCommentAlt size={30} color={`${mode ? 'white' : 'black'}`} />
                             <p style={{ cursor: 'pointer', margin: '0px', fontSize: '30px', fontFamily: 'sans-serif' }}>Feedback</p>
                         </div>
-                        <div onClick={() => navigate('/guidelines')} style={{ display: 'flex', width: '100%', gap: '30px', paddingLeft: '40px', justifyContent: 'center' }}>
+                        <div onClick={() => navigate('/guidelines')} style={{ display: 'flex', width: '100%', gap: '30px', justifyContent: 'center' }}>
                             <CiCircleInfo size={30} color={`${mode ? 'white' : 'black'}`} />
                             <p style={{ cursor: 'pointer', margin: '0px', fontSize: '30px', fontFamily: 'sans-serif' }}>Guidelines</p>
                         </div>
-                        <div style={{ cursor: 'pointer', display: 'flex', width: '100%', gap: '30px', paddingLeft: '40px', justifyContent: 'center' }} onClick={() => { handleClick(); setClicked(false) }}>
+                        <div style={{ cursor: 'pointer', display: 'flex', width: '100%', gap: '30px', justifyContent: 'center' }} onClick={() => { handleClick(); setClicked(false) }}>
                             {
                                 !mode ?
                                     <MdDarkMode color='rgb(17, 24, 38)' size={30} /> :
@@ -215,7 +215,7 @@ export default function Guidelines() {
                             }
                             <p style={{ cursor: 'pointer', margin: '0px', fontSize: '30px', fontFamily: 'sans-serif' }}>{!mode ? 'Dark' : 'Light'} mode</p>
                         </div>
-                        <div onClick={() => setClicked(!clicked)} style={{ display: 'flex', width: '100%', gap: '30px', paddingLeft: '40px', justifyContent: 'center' }}>
+                        <div onClick={() => setClicked(!clicked)} style={{ display: 'flex', width: '100%', gap: '30px', justifyContent: 'center' }}>
                             <IoMdClose size={30} color={`${mode ? 'white' : 'black'}`} />
                             <p style={{ cursor: 'pointer', margin: '0px', fontSize: '30px', fontFamily: 'sans-serif' }}>Close</p>
                         </div>

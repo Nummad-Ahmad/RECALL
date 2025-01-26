@@ -15,6 +15,7 @@
     flex-direction: column;
     background-color: rgb(242, 242, 242);
 }
+
 .navbardark {
     display: flex;
     height: 70px;
@@ -34,15 +35,18 @@
     background-color: rgb(242, 242, 242);
     color: black;
 }
-.options{
+
+.options {
     display: flex;
     align-items: center;
-    gap: 20px; 
+    gap: 20px;
 }
-.menuicon{
+
+.menuicon {
     display: none;
 }
-.menu{
+
+.menu {
     display: none;
 }
 
@@ -194,7 +198,8 @@
     gap: 10px;
     margin-top: 50px;
 }
-.advantagelight{
+
+.advantagelight {
     width: 100%;
     border-radius: 15px;
     display: flex;
@@ -206,7 +211,8 @@
     background-color: rgba(31, 41, 54, 0.1);
     color: black;
 }
-.advantagedark{
+
+.advantagedark {
     width: 100%;
     border-radius: 15px;
     display: flex;
@@ -218,7 +224,8 @@
     background-color: rgb(31, 41, 54);
     color: white;
 }
-.btnlight{
+
+.btnlight {
     width: 90%;
     height: 40px;
     border-radius: 10px;
@@ -232,7 +239,8 @@
     margin-top: auto;
     margin-bottom: 0px;
 }
-.btndark{
+
+.btndark {
     width: 90%;
     height: 40px;
     border-radius: 10px;
@@ -246,7 +254,8 @@
     margin-top: auto;
     margin-bottom: 0px;
 }
-.icondiv{
+
+.icondiv {
     height: 50px;
     width: 50px;
     display: flex;
@@ -255,61 +264,81 @@
     background-color: rgb(219, 234, 253);
     border-radius: 50%;
 }
-@media(max-width: 900px){
-    .whychooseus{
+
+@media(max-width: 900px) {
+    .whychooseus {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, 1fr);
     }
-    
-    .introdark{
+
+    .introdark {
         width: 80%;
     }
-    .introlight{
+
+    .introlight {
         width: 80%;
     }
 }
-@media(max-width: 700px){
-    .navbardark{
+
+@media(max-width: 700px) {
+    .navbardark {
         padding: 0px 20px;
     }
-    .navbarlight{
+
+    .navbarlight {
         padding: 0px 20px;
     }
-    .options{
+
+    .options {
         display: none;
     }
-    .menuicon{
+
+    .menuicon {
         display: inline;
     }
-    .menulight{
+
+    .menulight {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: space-around;
-        position: relative;
-        top: 70;
-        height: 50px;
+        padding: 30px 0px;
+        padding-top: 100px;
+        box-sizing: border-box;
+        gap: 80px;
+        position: fixed;
+        /* margin-top: 100px; */
+        left: 0;
         width: 100%;
-        background-color: rgba(31, 41, 54, 0.1);;
+        height: 100%;
+        z-index: 9999;
+        background-color: rgba(220, 221, 223);
         font-family: sans-serif;
-        font-size: 18px;
+        font-size: 30px;
         color: dark;
     }
-    .menudark{
+
+    .menudark {        
         display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: space-around;
-        position: relative;
-        top: 70;
-        height: 50px;
+        padding: 30px 0px;
+        padding-top: 100px;
+        box-sizing: border-box;
+        gap: 80px;
+        position: fixed;
+        left: 0;
         width: 100%;
+        height: 100%;
+        z-index: 9999;
         background-color: rgb(31, 41, 54);
         font-family: sans-serif;
-        font-size: 18px;
+        font-size: 30px;
         color: white;
     }
 }
-@media(max-width: 600px){
-    .whychooseus{
+
+@media(max-width: 600px) {
+    .whychooseus {
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: repeat(4, 1fr);
     }

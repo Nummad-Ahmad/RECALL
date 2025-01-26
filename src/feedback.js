@@ -1,15 +1,18 @@
 import { useNavigate } from 'react-router-dom';
 import style from './feedback.module.css';
 import Contactrobot from './images/contactrobo.png';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { IoMdMenu } from "react-icons/io";
 import { FaSearch } from "react-icons/fa";
 import { MdLightMode } from "react-icons/md";
 import { MdDarkMode } from "react-icons/md";
 import { FiLogIn } from "react-icons/fi";
-import { IoMdClose } from 'react-icons/io';
+import { IoIosSearch, IoMdClose } from 'react-icons/io';
 import { toggleMode } from './redux/slices';
+import { IoHomeOutline } from "react-icons/io5";
+import { CiCircleInfo } from "react-icons/ci";
+import { FaRegCommentAlt } from "react-icons/fa";
 export default function Contact() {
     const mode = useSelector((state) => state.mode.value);
     const dispatch = useDispatch();
@@ -25,6 +28,16 @@ export default function Contact() {
         dispatch(toggleMode());
         localStorage.setItem('isOn', JSON.stringify(mode));
     }
+        useEffect(() => {
+            if (clicked) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'visible'; 
+            }
+            return () => {
+                document.body.style.overflow = 'visible'; 
+            };
+        }, [clicked]);
     const headingStyle = {
         fontWeight: 'bold',
         color: mode ? 'white' : 'rgb(3, 34, 75)',
@@ -74,17 +87,33 @@ export default function Contact() {
                 {
                     clicked &&
                     <div className={`${mode ? style.menudark : style.menulight}`}>
-                        <p onClick={() => navigate('/home')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Home</p>
-                        <p onClick={() => navigate('/chat')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Search</p>
-                        <p onClick={() => navigate('/feedback')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Feedback</p>
-                        <p onClick={() => navigate('/guidelines')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Guidelines</p>
-                        {/* <p style={{ cursor: 'pointer' }} onClick={() => { navigate('/'); setClicked(false) }}>Sign in</p> */}
-                        <div style={{ cursor: 'pointer' }} onClick={() => { handleClick(); setClicked(false) }}>
+                        <div onClick={() => navigate('/home')} style={{ display: 'flex', width: '100%', gap: '30px', paddingLeft: '40px', justifyContent: 'center' }}>
+                            <IoHomeOutline size={30} color={`${mode ? 'white' : 'black'}`} />
+                            <p style={{ cursor: 'pointer', margin: '0px', fontSize: '30px', fontFamily: 'sans-serif' }}>Home</p>
+                        </div>
+                        <div onClick={() => navigate('/chat')} style={{ display: 'flex', width: '100%', gap: '30px', paddingLeft: '40px', justifyContent: 'center' }}>
+                            <IoIosSearch size={30} color={`${mode ? 'white' : 'black'}`} />
+                            <p style={{ cursor: 'pointer', margin: '0px', fontSize: '30px', fontFamily: 'sans-serif' }}>Search</p>
+                        </div>
+                        <div onClick={() => navigate('/feedback')} style={{ display: 'flex', width: '100%', gap: '30px', paddingLeft: '40px', justifyContent: 'center' }}>
+                            <FaRegCommentAlt size={30} color={`${mode ? 'white' : 'black'}`} />
+                            <p style={{ cursor: 'pointer', margin: '0px', fontSize: '30px', fontFamily: 'sans-serif' }}>Feedback</p>
+                        </div>
+                        <div onClick={() => navigate('/guidelines')} style={{ display: 'flex', width: '100%', gap: '30px', paddingLeft: '40px', justifyContent: 'center' }}>
+                            <CiCircleInfo size={30} color={`${mode ? 'white' : 'black'}`} />
+                            <p style={{ cursor: 'pointer', margin: '0px', fontSize: '30px', fontFamily: 'sans-serif' }}>Guidelines</p>
+                        </div>
+                        <div style={{ cursor: 'pointer', display: 'flex', width: '100%', gap: '30px', paddingLeft: '40px', justifyContent: 'center' }} onClick={() => { handleClick(); setClicked(false) }}>
                             {
                                 !mode ?
-                                    <MdDarkMode color='rgb(17, 24, 38)' size={20} /> :
-                                    <MdLightMode color='white' size={20} />
+                                    <MdDarkMode color='rgb(17, 24, 38)' size={30} /> :
+                                    <MdLightMode color='white' size={30} />
                             }
+                            <p style={{ cursor: 'pointer', margin: '0px', fontSize: '30px', fontFamily: 'sans-serif' }}>Toggle mode</p>
+                        </div>
+                        <div onClick={() => setClicked(!clicked)} style={{ display: 'flex', width: '100%', gap: '30px', paddingLeft: '40px', justifyContent: 'center' }}>
+                            <IoMdClose size={30} color={`${mode ? 'white' : 'black'}`} />
+                            <p style={{ cursor: 'pointer', margin: '0px', fontSize: '30px', fontFamily: 'sans-serif' }}>Close</p>
                         </div>
                     </div>
                 }

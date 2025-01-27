@@ -24,8 +24,10 @@ export default function App() {
         if (valid && password.length > 7) {
             setLoading(true);
             if (isLogin) {
-                axios.post(`https://recallbackend.vercel.app/login`, { email, password }).then(result => {
+                axios.post(`https://recallbackend.vercel.app/login`, { email, password }).then(response => {
                     toast.success('Login successful');
+                    localStorage.setItem('user', JSON.stringify(response.data));
+                    localStorage.setItem('userEndTime', JSON.stringify(response.data.user.endTime));
                     navigate('/home');
                 }).catch(error => {
                     const errorMessage = error?.response?.data?.error || 'Something went wrong!';

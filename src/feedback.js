@@ -14,6 +14,8 @@ import { IoHomeOutline } from "react-icons/io5";
 import { CiCircleInfo } from "react-icons/ci";
 import { FaRegCommentAlt } from "react-icons/fa";
 export default function Contact() {
+    const currentTime = new Date();
+    const [endTime, setEndTime] = useState('');
     const mode = useSelector((state) => state.mode.value);
     const dispatch = useDispatch();
     const [clicked, setClicked] = useState(false);
@@ -38,6 +40,16 @@ export default function Contact() {
                 document.body.style.overflow = 'visible'; 
             };
         }, [clicked]);
+        function checkDate(current, stored) {
+            const firstDate = new Date(current);
+            const secondDate = new Date(stored);
+            return secondDate.getTime() > firstDate.getTime();
+        }
+        useEffect(() => {
+            var storedUserEndTime = JSON.parse(localStorage.getItem('userEndTime'));
+            storedUserEndTime = new Date(storedUserEndTime);
+            setEndTime(storedUserEndTime);
+        }, []);
     const headingStyle = {
         fontWeight: 'bold',
         color: mode ? 'white' : 'rgb(3, 34, 75)',
@@ -61,7 +73,10 @@ export default function Contact() {
                     </div>
                     <div className={style.options}>
                         <p onClick={() => navigate('/home')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Home</p>
-                        <p onClick={() => navigate('/chat')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Search</p>
+                        {
+                            checkDate(currentTime, endTime) &&
+                            <p onClick={() => navigate('/chat')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Search</p>
+                        }
                         <p onClick={() => navigate('/feedback')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Feedback</p>
                         <p onClick={() => navigate('/guidelines')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Guidelines</p>
                         {/* <div style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '5px' }} onClick={() => navigate('/')}>
@@ -91,10 +106,12 @@ export default function Contact() {
                             <IoHomeOutline size={30} color={`${mode ? 'white' : 'black'}`} />
                             <p style={{ cursor: 'pointer', margin: '0px', fontSize: '30px', fontFamily: 'sans-serif' }}>Home</p>
                         </div>
-                        <div onClick={() => navigate('/chat')} style={{ display: 'flex', width: '100%', gap: '30px', justifyContent: 'center' }}>
+                        {
+                            checkDate(currentTime, endTime) &&
+                            <div onClick={() => navigate('/chat')} style={{ display: 'flex', width: '100%', gap: '30px', justifyContent: 'center' }}>
                             <IoIosSearch size={30} color={`${mode ? 'white' : 'black'}`} />
                             <p style={{ cursor: 'pointer', margin: '0px', fontSize: '30px', fontFamily: 'sans-serif' }}>Search</p>
-                        </div>
+                        </div>}
                         <div onClick={() => navigate('/feedback')} style={{ display: 'flex', width: '100%', gap: '30px', justifyContent: 'center' }}>
                             <FaRegCommentAlt size={30} color={`${mode ? 'white' : 'black'}`} />
                             <p style={{ cursor: 'pointer', margin: '0px', fontSize: '30px', fontFamily: 'sans-serif' }}>Feedback</p>

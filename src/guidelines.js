@@ -223,9 +223,10 @@ export default function Guidelines() {
                             }
                         </div>
                         <div className={`${mode ? style.buttonsdivdark : style.buttonsdivlight}`}>
-                        <span className={style.number}>
+                       {
+                        file == null &&
                             <p>Total <span style={{ fontWeight: 'bold' }}>{data.length}</span> guidelines</p>
-                            </span>
+                            }
                             <input type="file" accept="application/pdf" onChange={handleFileChange} />
                             {
                                 file != null &&

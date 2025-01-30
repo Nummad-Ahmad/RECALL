@@ -182,7 +182,7 @@
 .buttonsdivlight {
     border-top: 1px solid rgb(100, 100, 100);
     display: flex;
-    padding: 0px 10px;
+    padding: 5px 10px;
     box-sizing: border-box;
     justify-content: space-between;
     align-items: center;
@@ -193,7 +193,7 @@
 .buttonsdivdark {
     border-top: 1px solid rgb(100, 100, 100);
     display: flex;
-    padding: 0px 10px;
+    padding: 5px 10px;
     box-sizing: border-box;
     justify-content: space-between;
     align-items: center;

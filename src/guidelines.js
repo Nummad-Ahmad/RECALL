@@ -227,10 +227,10 @@ export default function Guidelines() {
                             <p>Total <span style={{ fontWeight: 'bold' }}>{data.length}</span> guidelines</p>
                             </span>
                             <input type="file" accept="application/pdf" onChange={handleFileChange} />
-                            {/* <button >
-                            </button> */}
-                            <button onClick={handleUpload} disabled={uploading} className={`${mode ? style.btndark : style.btnlight}`}>
-                                {uploading ? 'Uploading...' : 'Add'}</button>
+                            {
+                                file != null &&
+                                <button onClick={handleUpload} disabled={uploading} className={`${mode ? style.btndark : style.btnlight}`}>
+                                {uploading ? 'Uploading...' : 'Add'}</button>}
                         </div>
                     </div>
                 </div>

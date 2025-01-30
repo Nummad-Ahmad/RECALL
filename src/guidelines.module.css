@@ -227,7 +227,7 @@
     cursor: pointer;
 }
 
-@media(max-width: 800px) {
+@media(max-width: 810px) {
     .tableheaderdark {
         display: none;
     }

@@ -3,7 +3,6 @@ import style from './guidelines.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { toggleMode } from './redux/slices';
-import { FiLogIn } from "react-icons/fi";
 import { IoMdMenu } from "react-icons/io";
 import { IoMdClose } from 'react-icons/io';
 import { FaSearch } from "react-icons/fa";
@@ -15,6 +14,9 @@ import { IoHomeOutline } from "react-icons/io5";
 import { CiCircleInfo } from "react-icons/ci";
 import { FaRegCommentAlt } from "react-icons/fa";
 import Footer from './footer';
+import axios from 'axios';
+import toast from 'react-hot-toast';
+import tempData from './guidelinesdata';
 export default function Guidelines() {
     const currentTime = new Date();
     const [endTime, setEndTime] = useState('');
@@ -22,151 +24,76 @@ export default function Guidelines() {
     const dispatch = useDispatch();
     const [clicked, setClicked] = useState(false);
     const navigate = useNavigate();
-    const data = [
-        {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
-        },
-        {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
-        },
-        {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
-        },
-        {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
-        },
-        {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
-        },
-        {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
-        },
-        {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
-        },
-        {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
-        },
-        {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
-        },
-        {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
-        },
-        {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
-        },
-        {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
-        },
-        {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
-        },
-        {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
-        },
-        {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
-        },
-        {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
-        },
-        {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
-        },
-        {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
-        },
-        {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
-        },
-    ]
+    const [file, setFile] = useState(null);
+    const [uploading, setUploading] = useState(false);
+    const [pdfUrl, setPdfUrl] = useState('');
+    const [guidelinesData, setGuidelinesData] = useState([]);
+    var data = [];
+    useEffect(() => {
+        axios.get('https://recallbackend.vercel.app/pdf').then(response => { console.log('response', response.data.data); setGuidelinesData(response.data.data) }).catch(e => { console.log(e); toast.error("Error fetching data") });
+    }, []);
+    data = guidelinesData.length > 0 ? guidelinesData : tempData;
+    const handleFileChange = (e) => {
+        setFile(e.target.files[0]);
+    };
+
+    const handleUpload = async () => {
+        if (!file) {
+            toast.error('Please select a PDF file');
+            console.log('error');
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('pdf', file);
+        formData.append('filename', file.name); // Include filename in the request
+
+        setUploading(true);
+
+        try {
+            const response = await axios.post('https://recallbackend.vercel.app/upload', formData, {
+                headers: { 'Content-Type': 'multipart/form-data' },
+            });
+
+            setPdfUrl(response.data.pdfUrl);
+            toast.success('File uploaded successfully!');
+        } catch (error) {
+            console.error('Upload failed:', error);
+            toast.error('Upload failed');
+        }
+
+        setUploading(false);
+    };
+
     function handleClick() {
         dispatch(toggleMode());
         localStorage.setItem('isOn', JSON.stringify(mode));
     }
-        useEffect(() => {
-            if (clicked) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = 'visible'; 
-            }
-            return () => {
-                document.body.style.overflow = 'visible'; 
-            };
-        }, [clicked]);
-        
-        function checkDate(current, stored) {
-            const firstDate = new Date(current);
-            const secondDate = new Date(stored);
-            return secondDate.getTime() > firstDate.getTime();
+    useEffect(() => {
+        if (clicked) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'visible';
         }
-        useEffect(() => {
-            var storedUserEndTime = JSON.parse(localStorage.getItem('userEndTime'));
-            storedUserEndTime = new Date(storedUserEndTime);
-            setEndTime(storedUserEndTime);
-        }, []);
+        return () => {
+            document.body.style.overflow = 'visible';
+        };
+    }, [clicked]);
+
+    function checkDate(current, stored) {
+        const firstDate = new Date(current);
+        const secondDate = new Date(stored);
+        return secondDate.getTime() > firstDate.getTime();
+    }
+    useEffect(() => {
+        var storedUserEndTime = JSON.parse(localStorage.getItem('userEndTime'));
+        storedUserEndTime = new Date(storedUserEndTime);
+        setEndTime(storedUserEndTime);
+    }, []);
     return (
         <div className={`${mode ? style.guidelinesdark : style.guidelineslight}`}>
             <div style={{ display: 'flex', alignSelf: 'center', justifySelf: 'center', flexDirection: 'column', width: '100%', maxWidth: '1400px' }}>
-            <div style={{ overflow: clicked ? 'hidden' : 'visible' }} className={`${mode ? style.navbardark : style.navbarlight}`}>
+                <div style={{ overflow: clicked ? 'hidden' : 'visible' }} className={`${mode ? style.navbardark : style.navbarlight}`}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                         <FaSearch size={20} color={`${!mode ? 'rgb(17, 24, 38)' : 'white'}`} />
                         <p style={{
@@ -263,11 +190,11 @@ export default function Guidelines() {
                                         return (
                                             <div className={`${mode ? style.mobiletablecontentdark : style.mobiletablecontentlight}`}>
                                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                                                    <p style={{ margin: '0px', fontFamily: 'sans-serif', fontWeight: 'bold', fontSize: '18px' }}>{item.title}</p>
-                                                    <p style={{ margin: '0px', fontFamily: 'sans-serif' }}>{item['Date Uploaded']}</p>
+                                                    <a href={item.url} target='self'><p style={{ margin: '0px', fontFamily: 'sans-serif', fontWeight: 'bold', fontSize: '18px' }}>{item.name}</p></a>
+                                                    <p style={{ margin: '0px', fontFamily: 'sans-serif' }}>{item.date}</p>
                                                 </div>
                                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                                                    <p style={{ margin: '0px', fontFamily: 'sans-serif' }}>{item.Status}</p>
+                                                    <p style={{ margin: '0px', fontFamily: 'sans-serif' }}>{item.status}</p>
                                                     <div className={style.option}>
                                                         <MdOutlineDelete size={20} color={`${mode ? 'white' : 'black'}`} />
                                                     </div>
@@ -282,11 +209,10 @@ export default function Guidelines() {
                                 data.map((item, index) => {
                                     return (
                                         <div className={`${mode ? style.tablecontentdark : style.tablecontentlight}`}>
-
-                                            <div className={style.title}>{item.title}</div>
-                                            <div className={style.date}>{item['Date Uploaded']}</div>
-                                            <div className={style.status}>{item.Status}</div>
-                                            <div className={style.link}>{item.Link}</div>
+                                            <div className={style.title}>{item.name}</div>
+                                            <div className={style.date}>{item.date}</div>
+                                            <div className={style.status}>{item.status}</div>
+                                            <a target='self' style={{textDecoration: 'none'}} className={style.link} href={item.url}>{item.url.substring(0, 26)} ...</a>
                                             <div className={style.option}>
                                                 <MdOutlineDelete size={20} color={`${mode ? 'white' : 'black'}`} />
                                             </div>
@@ -297,13 +223,17 @@ export default function Guidelines() {
                             }
                         </div>
                         <div className={`${mode ? style.buttonsdivdark : style.buttonsdivlight}`}>
-                            <p>Total <span style={{fontWeight: 'bold'}}>{data.length}</span> guidelines</p>
-                            <button className={`${mode ? style.btndark : style.btnlight}`}>Add</button>
+                            <p>Total <span style={{ fontWeight: 'bold' }}>{data.length}</span> guidelines</p>
+                            <input type="file" accept="application/pdf" onChange={handleFileChange} />
+                            {/* <button >
+                            </button> */}
+                            <button onClick={handleUpload} disabled={uploading} className={`${mode ? style.btndark : style.btnlight}`}>
+                                {uploading ? 'Uploading...' : 'Add'}</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </div >
     );
 }

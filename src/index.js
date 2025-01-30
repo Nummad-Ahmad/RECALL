@@ -10,10 +10,12 @@ import { store } from './redux/store';
 import Contact from './feedback';
 import Guidelines from './guidelines';
 import Users from './users';
+import { Toaster } from 'react-hot-toast';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
+  <Toaster />
   <Router>
     <Routes>
       <Route path='/home' element={<Home/>}/>

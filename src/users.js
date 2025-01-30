@@ -1,9 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
-import style from './guidelines.module.css';
+import style from './users.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { toggleMode } from './redux/slices';
-import { FiLogIn } from "react-icons/fi";
 import { IoMdMenu } from "react-icons/io";
 import { IoMdClose } from 'react-icons/io';
 import { FaSearch } from "react-icons/fa";
@@ -15,7 +14,8 @@ import { IoHomeOutline } from "react-icons/io5";
 import { CiCircleInfo } from "react-icons/ci";
 import { FaRegCommentAlt } from "react-icons/fa";
 import Footer from './footer';
-export default function Guidelines() {
+import { IoMdCheckmark } from "react-icons/io";
+export default function Users() {
     const currentTime = new Date();
     const [endTime, setEndTime] = useState('');
     const mode = useSelector((state) => state.mode.value);
@@ -24,149 +24,149 @@ export default function Guidelines() {
     const navigate = useNavigate();
     const data = [
         {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
+            'name': 'Ali',
+            'subsciption': 'yes',
+            'type': "Monthly",
+            'payment': "Verifed"
         },
         {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
+            'name': 'Jawad',
+            'subsciption': 'yes',
+            'type': "Monthly",
+            'payment': "Verifed"
         },
         {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
+            'name': 'Ali',
+            'subsciption': 'yes',
+            'type': "Monthly",
+            'payment': "Verifed"
         },
         {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
+            'name': 'Ali',
+            'subsciption': 'yes',
+            'type': "Monthly",
+            'payment': "Verifed"
         },
         {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
+            'name': 'Ali',
+            'subsciption': 'yes',
+            'type': "Monthly",
+            'payment': "Verifed"
         },
         {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
+            'name': 'Ali',
+            'subsciption': 'yes',
+            'type': "Monthly",
+            'payment': "Unverifed"
         },
         {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
+            'name': 'Ali',
+            'subsciption': 'yes',
+            'type': "Monthly",
+            'payment': "Verifed"
         },
         {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
+            'name': 'Ali',
+            'subsciption': 'yes',
+            'type': "Monthly",
+            'payment': "Verifed"
         },
         {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
+            'name': 'Ali',
+            'subsciption': 'yes',
+            'type': "Monthly",
+            'payment': "Verifed"
         },
         {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
+            'name': 'Ali',
+            'subsciption': 'yes',
+            'type': "Monthly",
+            'payment': "Unverifed"
         },
         {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
+            'name': 'Ali',
+            'subsciption': 'yes',
+            'type': "Monthly",
+            'payment': "Unverifed"
         },
         {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
+            'name': 'Ali',
+            'subsciption': 'No',
+            'type': "Monthly",
+            'payment': "Verifed"
         },
         {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
+            'name': 'Ali',
+            'subsciption': 'yes',
+            'type': "Monthly",
+            'payment': "Unverifed"
         },
         {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
+            'name': 'Ali',
+            'subsciption': 'No',
+            'type': "Monthly",
+            'payment': "Unverifed"
         },
         {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
+            'name': 'Ali',
+            'subsciption': 'yes',
+            'type': "Monthly",
+            'payment': "Verifed"
         },
         {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
+            'name': 'Ali',
+            'subsciption': 'yes',
+            'type': "Monthly",
+            'payment': "Unverifed"
         },
         {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
+            'name': 'Ali',
+            'subsciption': 'yes',
+            'type': "Monthly",
+            'payment': "Verifed"
         },
         {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
+            'name': 'Usman',
+            'subsciption': 'No',
+            'type': "Monthly",
+            'payment': "Verifed"
         },
         {
-            'title': 'Transfusion Handbook',
-            'Date Uploaded': '1 Jan 2025',
-            'Status': "Active",
-            'Link': "Link"
+            'name': 'Ahmad',
+            'subsciption': 'yes',
+            'type': "Monthly",
+            'payment': "Unverifed"
         },
     ]
     function handleClick() {
         dispatch(toggleMode());
         localStorage.setItem('isOn', JSON.stringify(mode));
     }
-        useEffect(() => {
-            if (clicked) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = 'visible'; 
-            }
-            return () => {
-                document.body.style.overflow = 'visible'; 
-            };
-        }, [clicked]);
-        
-        function checkDate(current, stored) {
-            const firstDate = new Date(current);
-            const secondDate = new Date(stored);
-            return secondDate.getTime() > firstDate.getTime();
+    useEffect(() => {
+        if (clicked) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'visible';
         }
-        useEffect(() => {
-            var storedUserEndTime = JSON.parse(localStorage.getItem('userEndTime'));
-            storedUserEndTime = new Date(storedUserEndTime);
-            setEndTime(storedUserEndTime);
-        }, []);
+        return () => {
+            document.body.style.overflow = 'visible';
+        };
+    }, [clicked]);
+
+    function checkDate(current, stored) {
+        const firstDate = new Date(current);
+        const secondDate = new Date(stored);
+        return secondDate.getTime() > firstDate.getTime();
+    }
+    useEffect(() => {
+        var storedUserEndTime = JSON.parse(localStorage.getItem('userEndTime'));
+        storedUserEndTime = new Date(storedUserEndTime);
+        setEndTime(storedUserEndTime);
+    }, []);
     return (
         <div className={`${mode ? style.guidelinesdark : style.guidelineslight}`}>
             <div style={{ display: 'flex', alignSelf: 'center', justifySelf: 'center', flexDirection: 'column', width: '100%', maxWidth: '1400px' }}>
-            <div style={{ overflow: clicked ? 'hidden' : 'visible' }} className={`${mode ? style.navbardark : style.navbarlight}`}>
+                <div style={{ overflow: clicked ? 'hidden' : 'visible' }} className={`${mode ? style.navbardark : style.navbarlight}`}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                         <FaSearch size={20} color={`${!mode ? 'rgb(17, 24, 38)' : 'white'}`} />
                         <p style={{
@@ -251,26 +251,33 @@ export default function Guidelines() {
                     <div className={`${mode ? style.tabledark : style.tablelight}`}>
                         <div className={style.tablecontainer}>
                             <div className={`${mode ? style.tableheaderdark : style.tableheaderlight}`}>
-                                <div className={style.title}>Title</div>
-                                <div className={style.date}>Date updated</div>
-                                <div className={style.status}>Status</div>
-                                <div className={style.link}>Link</div>
+                                <div className={style.title}>Name</div>
+                                <div className={style.date}>Subscribed</div>
+                                <div className={style.status}>Type</div>
+                                <div className={style.link}>Verification</div>
                                 <div className={style.option}>Action</div>
                             </div>
                             <div className={style.mobilecontent}>
                                 {
-                                    data.map(item => {
+                                    data.map((item, index) => {
                                         return (
-                                            <div className={`${mode ? style.mobiletablecontentdark : style.mobiletablecontentlight}`}>
+                                            <div key={index} className={`${mode ? style.mobiletablecontentdark : style.mobiletablecontentlight}`}>
                                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                                                    <p style={{ margin: '0px', fontFamily: 'sans-serif', fontWeight: 'bold', fontSize: '18px' }}>{item.title}</p>
-                                                    <p style={{ margin: '0px', fontFamily: 'sans-serif' }}>{item['Date Uploaded']}</p>
+                                                    <p style={{ margin: '0px', fontFamily: 'sans-serif', fontWeight: 'bold', fontSize: '18px' }}>{item.name}</p>
+                                                    <p style={{ margin: '0px', fontFamily: 'sans-serif' }}>{item.subsciption}</p>
                                                 </div>
                                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                                                    <p style={{ margin: '0px', fontFamily: 'sans-serif' }}>{item.Status}</p>
-                                                    <div className={style.option}>
-                                                        <MdOutlineDelete size={20} color={`${mode ? 'white' : 'black'}`} />
-                                                    </div>
+                                                    <p style={{ margin: '0px', fontFamily: 'sans-serif' }}>{item.payment}</p>
+                                                    {
+                                                        item.payment == 'Verified' ?
+                                                            <div className={style.option}>
+                                                                <MdOutlineDelete size={20} color={`${mode ? 'white' : 'black'}`} />
+                                                            </div> :
+                                                            <div style={{ display: 'flex' }} className={style.option}>
+                                                                <MdOutlineDelete size={20} color={`${mode ? 'white' : 'black'}`} />
+                                                                <IoMdCheckmark size={20} color={`${mode ? 'rgb(29, 255, 29)' : 'green'}`} />
+                                                            </div>
+                                                    }
                                                 </div>
 
                                             </div>
@@ -281,15 +288,22 @@ export default function Guidelines() {
                             {
                                 data.map((item, index) => {
                                     return (
-                                        <div className={`${mode ? style.tablecontentdark : style.tablecontentlight}`}>
+                                        <div key={index} className={`${mode ? style.tablecontentdark : style.tablecontentlight}`}>
 
-                                            <div className={style.title}>{item.title}</div>
-                                            <div className={style.date}>{item['Date Uploaded']}</div>
-                                            <div className={style.status}>{item.Status}</div>
-                                            <div className={style.link}>{item.Link}</div>
-                                            <div className={style.option}>
-                                                <MdOutlineDelete size={20} color={`${mode ? 'white' : 'black'}`} />
-                                            </div>
+                                            <div className={style.title}>{item.name}</div>
+                                            <div className={style.date}>{item.subsciption}</div>
+                                            <div className={style.status}>{item.type}</div>
+                                            <div className={style.link}>{item.payment}</div>
+                                            {
+                                                item.payment == 'Verifed' ?
+                                                    <div className={style.option}>
+                                                        <MdOutlineDelete size={20} color={`${mode ? 'white' : 'black'}`} />
+                                                    </div> :
+                                                    <div className={style.option}>
+                                                        <MdOutlineDelete size={20} color={`${mode ? 'white' : 'black'}`} />
+                                                        <IoMdCheckmark size={20} color={`${mode ? 'rgb(29, 255, 29)' : 'green'}`} />
+                                                    </div>
+                                            }
                                         </div>
                                     )
                                 })
@@ -297,13 +311,13 @@ export default function Guidelines() {
                             }
                         </div>
                         <div className={`${mode ? style.buttonsdivdark : style.buttonsdivlight}`}>
-                            <p>Total <span style={{fontWeight: 'bold'}}>{data.length}</span> guidelines</p>
+                            <p>Total <span style={{ fontWeight: 'bold' }}>{data.length}</span> guidelines</p>
                             <button className={`${mode ? style.btndark : style.btnlight}`}>Add</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </div >
     );
 }

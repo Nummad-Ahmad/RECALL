@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import Contact from './feedback';
 import Guidelines from './guidelines';
+import Users from './users';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,6 +18,7 @@ root.render(
     <Routes>
       <Route path='/home' element={<Home/>}/>
       <Route path='/' element={<App/>}></Route>
+      <Route path='/users' element={<Users/>}></Route>
       <Route path='/guidelines' element={<Guidelines/>}></Route>
       <Route path='/feedback' element={<Contact/>}></Route>
       <Route path='/chat' element={<Chat/>}></Route>

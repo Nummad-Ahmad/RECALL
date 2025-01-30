@@ -13,6 +13,7 @@ import { toggleMode } from './redux/slices';
 import { IoHomeOutline } from "react-icons/io5";
 import { CiCircleInfo } from "react-icons/ci";
 import { FaRegCommentAlt } from "react-icons/fa";
+import Footer from './footer';
 export default function Contact() {
     const currentTime = new Date();
     const [endTime, setEndTime] = useState('');
@@ -60,7 +61,7 @@ export default function Contact() {
     return (
         <div className={`${mode ? style.contactdark : style.contactlight}`}>
             <div style={{ display: 'flex', alignSelf: 'center', justifySelf: 'center', flexDirection: 'column', width: '100%', maxWidth: '1400px' }}>
-                <div className={`${mode ? style.navbardark : style.navbarlight}`}>
+            <div style={{ overflow: clicked ? 'hidden' : 'visible' }} className={`${mode ? style.navbardark : style.navbarlight}`}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                         <FaSearch size={20} color={`${!mode ? 'rgb(17, 24, 38)' : 'white'}`} />
                         <p style={{
@@ -72,6 +73,7 @@ export default function Contact() {
                         }}>RECALL</p>
                     </div>
                     <div className={style.options}>
+                        <p onClick={() => navigate('/users')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Users</p>
                         <p onClick={() => navigate('/home')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Home</p>
                         {
                             checkDate(currentTime, endTime) &&
@@ -101,7 +103,12 @@ export default function Contact() {
                 </div>
                 {
                     clicked &&
+
                     <div className={`${mode ? style.menudark : style.menulight}`}>
+                        <div onClick={() => navigate('/users')} style={{ display: 'flex', width: '100%', gap: '30px', justifyContent: 'center' }}>
+                            <FaRegCommentAlt size={30} color={`${mode ? 'white' : 'black'}`} />
+                            <p style={{ cursor: 'pointer', margin: '0px', fontSize: '30px', fontFamily: 'sans-serif' }}>Users</p>
+                        </div>
                         <div onClick={() => navigate('/home')} style={{ display: 'flex', width: '100%', gap: '30px', justifyContent: 'center' }}>
                             <IoHomeOutline size={30} color={`${mode ? 'white' : 'black'}`} />
                             <p style={{ cursor: 'pointer', margin: '0px', fontSize: '30px', fontFamily: 'sans-serif' }}>Home</p>
@@ -109,9 +116,10 @@ export default function Contact() {
                         {
                             checkDate(currentTime, endTime) &&
                             <div onClick={() => navigate('/chat')} style={{ display: 'flex', width: '100%', gap: '30px', justifyContent: 'center' }}>
-                            <IoIosSearch size={30} color={`${mode ? 'white' : 'black'}`} />
-                            <p style={{ cursor: 'pointer', margin: '0px', fontSize: '30px', fontFamily: 'sans-serif' }}>Search</p>
-                        </div>}
+                                <IoIosSearch size={30} color={`${mode ? 'white' : 'black'}`} />
+                                <p style={{ cursor: 'pointer', margin: '0px', fontSize: '30px', fontFamily: 'sans-serif' }}>Search</p>
+                            </div>
+                        }
                         <div onClick={() => navigate('/feedback')} style={{ display: 'flex', width: '100%', gap: '30px', justifyContent: 'center' }}>
                             <FaRegCommentAlt size={30} color={`${mode ? 'white' : 'black'}`} />
                             <p style={{ cursor: 'pointer', margin: '0px', fontSize: '30px', fontFamily: 'sans-serif' }}>Feedback</p>
@@ -159,6 +167,7 @@ export default function Contact() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }

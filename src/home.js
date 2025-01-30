@@ -16,6 +16,7 @@ import axios from 'axios';
 import { IoHomeOutline } from "react-icons/io5";
 import { CiCircleInfo } from "react-icons/ci";
 import { FaRegCommentAlt } from "react-icons/fa";
+import Footer from './footer';
 
 export default function Home() {
     const currentTime = new Date();
@@ -76,6 +77,7 @@ export default function Home() {
                         }}>RECALL</p>
                     </div>
                     <div className={style.options}>
+                        <p onClick={() => navigate('/users')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Users</p>
                         <p onClick={() => navigate('/home')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Home</p>
                         {
                             checkDate(currentTime, endTime) &&
@@ -105,17 +107,22 @@ export default function Home() {
                 </div>
                 {
                     clicked &&
+
                     <div className={`${mode ? style.menudark : style.menulight}`}>
+                        <div onClick={() => navigate('/users')} style={{ display: 'flex', width: '100%', gap: '30px', justifyContent: 'center' }}>
+                            <FaRegCommentAlt size={30} color={`${mode ? 'white' : 'black'}`} />
+                            <p style={{ cursor: 'pointer', margin: '0px', fontSize: '30px', fontFamily: 'sans-serif' }}>Users</p>
+                        </div>
                         <div onClick={() => navigate('/home')} style={{ display: 'flex', width: '100%', gap: '30px', justifyContent: 'center' }}>
                             <IoHomeOutline size={30} color={`${mode ? 'white' : 'black'}`} />
                             <p style={{ cursor: 'pointer', margin: '0px', fontSize: '30px', fontFamily: 'sans-serif' }}>Home</p>
                         </div>
                         {
                             checkDate(currentTime, endTime) &&
-                        <div onClick={() => navigate('/chat')} style={{ display: 'flex', width: '100%', gap: '30px', justifyContent: 'center' }}>
-                            <IoIosSearch size={30} color={`${mode ? 'white' : 'black'}`} />
-                            <p style={{ cursor: 'pointer', margin: '0px', fontSize: '30px', fontFamily: 'sans-serif' }}>Search</p>
-                        </div>
+                            <div onClick={() => navigate('/chat')} style={{ display: 'flex', width: '100%', gap: '30px', justifyContent: 'center' }}>
+                                <IoIosSearch size={30} color={`${mode ? 'white' : 'black'}`} />
+                                <p style={{ cursor: 'pointer', margin: '0px', fontSize: '30px', fontFamily: 'sans-serif' }}>Search</p>
+                            </div>
                         }
                         <div onClick={() => navigate('/feedback')} style={{ display: 'flex', width: '100%', gap: '30px', justifyContent: 'center' }}>
                             <FaRegCommentAlt size={30} color={`${mode ? 'white' : 'black'}`} />
@@ -201,11 +208,11 @@ export default function Home() {
                         <p style={{ margin: '0px', marginTop: '10px', fontSize: '18px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>Free</p>
                         <p style={{ margin: '0px', marginTop: '10px', fontSize: '25px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>£ 0</p>
                         <div style={{ display: 'flex', gap: '20px' }}>
-                            <IoMdCheckmark color='rgb(29, 255, 29)' size={20} />
+                            <IoMdCheckmark color={`${mode ? 'rgb(29, 255, 29)' : 'green'}`} size={20} />
                             <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>3 free searches everyday</p>
                         </div>
                         <div style={{ display: 'flex', gap: '20px' }}>
-                            <IoMdCheckmark color='rgb(29, 255, 29)' size={20} />
+                            <IoMdCheckmark color={`${mode ? 'rgb(29, 255, 29)' : 'green'}`} size={20} />
                             <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>Citaions</p>
                         </div>
 
@@ -217,11 +224,11 @@ export default function Home() {
                         <p style={{ margin: '0px', marginTop: '10px', fontSize: '18px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>Premium Monthly</p>
                         <p style={{ margin: '0px', marginTop: '10px', fontSize: '25px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>£ 9.99</p>
                         <div style={{ display: 'flex', gap: '20px' }}>
-                            <IoMdCheckmark color='rgb(29, 255, 29)' size={20} />
+                            <IoMdCheckmark color={`${mode ? 'rgb(29, 255, 29)' : 'green'}`} size={20} />
                             <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>Unlimited searches</p>
                         </div>
                         <div style={{ display: 'flex', gap: '20px' }}>
-                            <IoMdCheckmark color='rgb(29, 255, 29)' size={20} />
+                            <IoMdCheckmark color={`${mode ? 'rgb(29, 255, 29)' : 'green'}`} size={20} />
                             <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>Citaions</p>
                         </div>
 
@@ -233,15 +240,15 @@ export default function Home() {
                         <p style={{ margin: '0px', marginTop: '10px', fontSize: '18px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>Premium Annual</p>
                         <p style={{ margin: '0px', marginTop: '10px', fontSize: '25px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>£ 90</p>
                         <div style={{ display: 'flex', gap: '20px' }}>
-                            <IoMdCheckmark color='rgb(29, 255, 29)' size={20} />
+                            <IoMdCheckmark color={`${mode ? 'rgb(29, 255, 29)' : 'green'}`} size={20} />
                             <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>Unlimited searches</p>
                         </div>
                         <div style={{ display: 'flex', gap: '20px' }}>
-                            <IoMdCheckmark color='rgb(29, 255, 29)' size={20} />
+                            <IoMdCheckmark color={`${mode ? 'rgb(29, 255, 29)' : 'green'}`} size={20} />
                             <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>Citaions</p>
                         </div>
                         <div style={{ display: 'flex', gap: '20px' }}>
-                            <IoMdCheckmark color='rgb(29, 255, 29)' size={20} />
+                            <IoMdCheckmark color={`${mode ? 'rgb(29, 255, 29)' : 'green'}`} size={20} />
                             <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>Save £ 29.88 per year</p>
                         </div>
 
@@ -253,15 +260,15 @@ export default function Home() {
                         <p style={{ margin: '0px', marginTop: '10px', fontSize: '18px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>Student</p>
                         <p style={{ margin: '0px', marginTop: '10px', fontSize: '25px', fontWeight: 'bold', fontFamily: 'sans-serif' }}>£ 3.50</p>
                         <div style={{ display: 'flex', gap: '20px' }}>
-                            <IoMdCheckmark color='rgb(29, 255, 29)' size={20} />
+                            <IoMdCheckmark color={`${mode ? 'rgb(29, 255, 29)' : 'green'}`} size={20} />
                             <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>3 free searches everyday</p>
                         </div>
                         <div style={{ display: 'flex', gap: '20px' }}>
-                            <IoMdCheckmark color='rgb(29, 255, 29)' size={20} />
+                            <IoMdCheckmark color={`${mode ? 'rgb(29, 255, 29)' : 'green'}`} size={20} />
                             <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>Citaions</p>
                         </div>
                         <div style={{ display: 'flex', gap: '20px' }}>
-                            <IoMdCheckmark color='rgb(29, 255, 29)' size={20} />
+                            <IoMdCheckmark color={`${mode ? 'rgb(29, 255, 29)' : 'green'}`} size={20} />
                             <p style={{ margin: '0px', fontSize: '15px', fontFamily: 'sans-serif' }}>Requires student verification</p>
                         </div>
                         <div className={`${mode ? style.btndark : style.btnlight}`}>
@@ -270,6 +277,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }

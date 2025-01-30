@@ -26,7 +26,8 @@ export default function App() {
             if (isLogin) {
                 axios.post(`https://recallbackend.vercel.app/login`, { email, password }).then(response => {
                     toast.success('Login successful');
-                    localStorage.setItem('user', JSON.stringify(response.data));
+                    console.log(response.data.user);
+                    localStorage.setItem('user', (response.data.user));
                     localStorage.setItem('userEndTime', JSON.stringify(response.data.user.endTime));
                     navigate('/home');
                 }).catch(error => {

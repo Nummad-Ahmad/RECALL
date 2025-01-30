@@ -16,7 +16,6 @@ import { FaRegCommentAlt } from "react-icons/fa";
 import Footer from './footer';
 import axios from 'axios';
 import toast from 'react-hot-toast';
-import tempData from './guidelinesdata';
 export default function Guidelines() {
     const currentTime = new Date();
     const [endTime, setEndTime] = useState('');

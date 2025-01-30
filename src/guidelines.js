@@ -17,6 +17,7 @@ import Footer from './footer';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 export default function Guidelines() {
+    const [user, setUser] = useState(null);
     const currentTime = new Date();
     const [endTime, setEndTime] = useState('');
     const mode = useSelector((state) => state.mode.value);
@@ -27,11 +28,26 @@ export default function Guidelines() {
     const [uploading, setUploading] = useState(false);
     const [pdfUrl, setPdfUrl] = useState('');
     const [guidelinesData, setGuidelinesData] = useState([]);
-    var data = [];
+
+    const sortByDateDescending = (data) => {
+        return [...data].sort((a, b) => new Date(b.date) - new Date(a.date));
+    };
+    function getData(){
+        axios.get('https://recallbackend.vercel.app/pdf')
+            .then(response => {
+                const sortedData = sortByDateDescending(response.data.data);
+                setGuidelinesData(sortedData);
+            })
+            .catch(e => {
+                toast.error("Error fetching data");
+            });
+    }
     useEffect(() => {
-        axios.get('https://recallbackend.vercel.app/pdf').then(response => { console.log('response', response.data.data); setGuidelinesData(response.data.data) }).catch(e => { console.log(e); toast.error("Error fetching data") });
+        getData();
     }, []);
-    data = guidelinesData.length > 0 ? guidelinesData : [];
+
+    const data = guidelinesData.length > 0 ? guidelinesData : [];
+
     const handleFileChange = (e) => {
         setFile(e.target.files[0]);
     };
@@ -85,8 +101,21 @@ export default function Guidelines() {
     useEffect(() => {
         var storedUserEndTime = JSON.parse(localStorage.getItem('userEndTime'));
         storedUserEndTime = new Date(storedUserEndTime);
+        const storedUser = JSON.parse(localStorage.getItem('user'));
+        setUser(storedUser.email);
         setEndTime(storedUserEndTime);
     }, []);
+    const deleteRecord = (id) => {
+        console.log(id);
+        axios.delete(`https://recallbackend.vercel.app/delete/${id}`)
+            .then(response => {
+                toast.success(response.data.message);
+                getData();
+            })
+            .catch(error => {
+                toast.error("Error deleting record");
+            });
+    };
     return (
         <div className={`${mode ? style.guidelinesdark : style.guidelineslight}`}>
             <div style={{ display: 'flex', alignSelf: 'center', justifySelf: 'center', flexDirection: 'column', width: '100%', maxWidth: '1400px' }}>
@@ -179,7 +208,7 @@ export default function Guidelines() {
                                 <div className={style.date}>Date updated</div>
                                 <div className={style.status}>Status</div>
                                 <div className={style.link}>Link</div>
-                                <div className={style.option}>Action</div>
+                                {user == 'admin@gmail.com' && <div className={style.option}>Action</div>}
                             </div>
                             <div className={style.mobilecontent}>
                                 {
@@ -192,9 +221,9 @@ export default function Guidelines() {
                                                 </div>
                                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                                                     <p style={{ margin: '0px', fontFamily: 'sans-serif' }}>{item.status}</p>
-                                                    <div className={style.option}>
+                                                    {user == 'admin@gmail.com' && <div onClick={() => deleteRecord(item._id)} className={style.option}>
                                                         <MdOutlineDelete size={20} color={`${mode ? 'white' : 'black'}`} />
-                                                    </div>
+                                                    </div>}
                                                 </div>
 
                                             </div>
@@ -210,9 +239,9 @@ export default function Guidelines() {
                                             <div className={style.date}>{item.date}</div>
                                             <div className={style.status}>{item.status}</div>
                                             <a target='self' style={{ textDecoration: 'none' }} className={style.link} href={item.url}>{item.url.substring(0, 26)} ...</a>
-                                            <div className={style.option}>
+                                            {user == 'admin@gmail.com' && <div onClick={() => deleteRecord(item._id)} className={style.option}>
                                                 <MdOutlineDelete size={20} color={`${mode ? 'white' : 'black'}`} />
-                                            </div>
+                                            </div>}
                                         </div>
                                     )
                                 })

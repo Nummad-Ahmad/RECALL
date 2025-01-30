@@ -267,7 +267,7 @@
     }
 
     .number {
-        display: block;
+        display: none;
     }
 }
 

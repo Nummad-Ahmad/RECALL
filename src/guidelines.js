@@ -43,11 +43,9 @@ export default function Guidelines() {
             console.log('error');
             return;
         }
-
         const formData = new FormData();
         formData.append('pdf', file);
-        formData.append('filename', file.name); // Include filename in the request
-
+        formData.append('filename', file.name);
         setUploading(true);
 
         try {
@@ -212,7 +210,7 @@ export default function Guidelines() {
                                             <div className={style.title}>{item.name}</div>
                                             <div className={style.date}>{item.date}</div>
                                             <div className={style.status}>{item.status}</div>
-                                            <a target='self' style={{textDecoration: 'none'}} className={style.link} href={item.url}>{item.url.substring(0, 26)} ...</a>
+                                            <a target='self' style={{ textDecoration: 'none' }} className={style.link} href={item.url}>{item.url.substring(0, 26)} ...</a>
                                             <div className={style.option}>
                                                 <MdOutlineDelete size={20} color={`${mode ? 'white' : 'black'}`} />
                                             </div>
@@ -223,15 +221,16 @@ export default function Guidelines() {
                             }
                         </div>
                         <div className={`${mode ? style.buttonsdivdark : style.buttonsdivlight}`}>
-                       {
-                        file == null &&
-                            <p>Total <span style={{ fontWeight: 'bold' }}>{data.length}</span> guidelines</p>
-                            }
+                            {<span className={style.number}>
+                                {file == null &&
+                                <p>Total <span style={{ fontWeight: 'bold' }}>{data.length}</span> guidelines</p>}
+                            </span>}
                             <input type="file" accept="application/pdf" onChange={handleFileChange} />
                             {
                                 file != null &&
                                 <button onClick={handleUpload} disabled={uploading} className={`${mode ? style.btndark : style.btnlight}`}>
-                                {uploading ? 'Uploading...' : 'Add'}</button>}
+                                    {uploading ? 'Uploading...' : 'Add'}</button>
+                            }
                         </div>
                     </div>
                 </div>

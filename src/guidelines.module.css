@@ -188,6 +188,7 @@
     align-items: center;
     font-family: sans-serif;
     color: black;
+    height: 50px;
 }
 
 .buttonsdivdark {
@@ -199,6 +200,7 @@
     align-items: center;
     font-family: sans-serif;
     color: white;
+    height: 50px;
 }
 
 .btnlight {
@@ -226,7 +228,8 @@
     border-radius: 5px;
     cursor: pointer;
 }
-.number{
+
+.number {
     display: inline;
 }
 
@@ -262,17 +265,10 @@
         width: 90%;
         height: 90%;
     }
-    
-.number{
-    display: block;
-}
-.buttonsdivlight {
-    padding: 5px 10px;
-}
 
-.buttonsdivdark {
-    padding: 5px 10px;
-}
+    .number {
+        display: block;
+    }
 }
 
 @media(max-width: 700px) {
@@ -312,7 +308,7 @@
         color: dark;
     }
 
-    .menudark {        
+    .menudark {
         display: flex;
         flex-direction: column;
         align-items: center;

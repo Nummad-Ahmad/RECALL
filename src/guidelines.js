@@ -32,7 +32,7 @@ export default function Guidelines() {
     useEffect(() => {
         axios.get('https://recallbackend.vercel.app/pdf').then(response => { console.log('response', response.data.data); setGuidelinesData(response.data.data) }).catch(e => { console.log(e); toast.error("Error fetching data") });
     }, []);
-    data = guidelinesData.length > 0 ? guidelinesData : tempData;
+    data = guidelinesData.length > 0 ? guidelinesData : [];
     const handleFileChange = (e) => {
         setFile(e.target.files[0]);
     };

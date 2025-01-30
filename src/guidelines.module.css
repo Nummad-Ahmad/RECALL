@@ -232,7 +232,12 @@
 .number {
     display: inline;
 }
-
+.linklight{
+    color: rgb(47, 47, 211);
+}
+.linkdark{
+    color: aqua;
+}
 @media(max-width: 810px) {
     .tableheaderdark {
         display: none;

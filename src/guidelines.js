@@ -216,7 +216,7 @@ export default function Guidelines() {
                                         return (
                                             <div className={`${mode ? style.mobiletablecontentdark : style.mobiletablecontentlight}`}>
                                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                                                    <a href={item.url} target='self'><p style={{ margin: '0px', fontFamily: 'sans-serif', fontWeight: 'bold', fontSize: '18px' }}>{item.name}</p></a>
+                                                    <a className={`${mode ? style.linkdark : style.linklight}`} href={item.url} target='self'><p style={{ margin: '0px', fontFamily: 'sans-serif', fontWeight: 'bold', fontSize: '18px' }}>{item.name}</p></a>
                                                     <p style={{ margin: '0px', fontFamily: 'sans-serif' }}>{item.date}</p>
                                                 </div>
                                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -238,7 +238,7 @@ export default function Guidelines() {
                                             <div className={style.title}>{item.name}</div>
                                             <div className={style.date}>{item.date}</div>
                                             <div className={style.status}>{item.status}</div>
-                                            <a target='self' style={{ textDecoration: 'none' }} className={style.link} href={item.url}>{item.url.substring(0, 26)} ...</a>
+                                            <a target='self' style={{ color: mode ? 'rgb(0, 255, 255)' : 'rgb(47, 47, 211)', textDecoration: 'none' }} className={style.link} href={item.url}>{item.url.substring(0, 26)} ...</a>
                                             {user == 'admin@gmail.com' && <div onClick={() => deleteRecord(item._id)} className={style.option}>
                                                 <MdOutlineDelete size={20} color={`${mode ? 'white' : 'black'}`} />
                                             </div>}

@@ -226,6 +226,9 @@
     border-radius: 5px;
     cursor: pointer;
 }
+.number{
+    display: inline;
+}
 
 @media(max-width: 810px) {
     .tableheaderdark {
@@ -259,6 +262,10 @@
         width: 90%;
         height: 90%;
     }
+    
+.number{
+    display: block;
+}
 }
 
 @media(max-width: 700px) {

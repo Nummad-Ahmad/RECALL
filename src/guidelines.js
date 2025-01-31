@@ -32,7 +32,7 @@ export default function Guidelines() {
     const sortByDateDescending = (data) => {
         return [...data].sort((a, b) => new Date(b.date) - new Date(a.date));
     };
-    function getData(){
+    function getData() {
         axios.get('https://recallbackend.vercel.app/pdf')
             .then(response => {
                 const sortedData = sortByDateDescending(response.data.data);
@@ -70,6 +70,7 @@ export default function Guidelines() {
 
             setPdfUrl(response.data.pdfUrl);
             toast.success('File uploaded successfully!');
+            getData();
         } catch (error) {
             console.error('Upload failed:', error);
             toast.error('Upload failed');

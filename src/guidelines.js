@@ -255,13 +255,13 @@ export default function Guidelines() {
                             </span>
                             {
                                 user == 'anas@onlycells.co.uk' && <>
-                            <input type="file" accept="application/pdf" onChange={handleFileChange} />
-                            {
-                                file != null &&
-                                <button onClick={handleUpload} disabled={uploading} className={`${mode ? style.btndark : style.btnlight}`}>
-                                    {uploading ? 'Uploading...' : 'Add'}</button>
-                            }
-                            </>}
+                                    <input type="file" accept="application/pdf" onChange={handleFileChange} />
+                                    {
+                                        file != null &&
+                                        <button onClick={handleUpload} disabled={uploading} className={`${mode ? style.btndark : style.btnlight}`}>
+                                            {uploading ? 'Uploading...' : 'Add'}</button>
+                                    }
+                                </>}
                         </div>
                     </div>
                 </div>

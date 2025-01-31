@@ -73,7 +73,7 @@ export default function Contact() {
                         }}>RECALL</p>
                     </div>
                     <div className={style.options}>
-                        <p onClick={() => navigate('/users')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Users</p>
+                        {/* <p onClick={() => navigate('/users')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Users</p> */}
                         <p onClick={() => navigate('/home')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Home</p>
                         {
                             checkDate(currentTime, endTime) &&
@@ -105,10 +105,10 @@ export default function Contact() {
                     clicked &&
 
                     <div className={`${mode ? style.menudark : style.menulight}`}>
-                        <div onClick={() => navigate('/users')} style={{ display: 'flex', width: '100%', gap: '30px', justifyContent: 'center' }}>
+                        {/* <div onClick={() => navigate('/users')} style={{ display: 'flex', width: '100%', gap: '30px', justifyContent: 'center' }}>
                             <FaRegCommentAlt size={30} color={`${mode ? 'white' : 'black'}`} />
                             <p style={{ cursor: 'pointer', margin: '0px', fontSize: '30px', fontFamily: 'sans-serif' }}>Users</p>
-                        </div>
+                        </div> */}
                         <div onClick={() => navigate('/home')} style={{ display: 'flex', width: '100%', gap: '30px', justifyContent: 'center' }}>
                             <IoHomeOutline size={30} color={`${mode ? 'white' : 'black'}`} />
                             <p style={{ cursor: 'pointer', margin: '0px', fontSize: '30px', fontFamily: 'sans-serif' }}>Home</p>

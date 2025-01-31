@@ -132,7 +132,7 @@ export default function Guidelines() {
                         }}>RECALL</p>
                     </div>
                     <div className={style.options}>
-                        <p onClick={() => navigate('/users')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Users</p>
+                        {/* <p onClick={() => navigate('/users')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Users</p> */}
                         <p onClick={() => navigate('/home')} style={{ cursor: 'pointer', margin: '0px', fontSize: '18px', fontFamily: 'sans-serif' }}>Home</p>
                         {
                             checkDate(currentTime, endTime) &&
@@ -164,10 +164,10 @@ export default function Guidelines() {
                     clicked &&
 
                     <div className={`${mode ? style.menudark : style.menulight}`}>
-                        <div onClick={() => navigate('/users')} style={{ display: 'flex', width: '100%', gap: '30px', justifyContent: 'center' }}>
+                        {/* <div onClick={() => navigate('/users')} style={{ display: 'flex', width: '100%', gap: '30px', justifyContent: 'center' }}>
                             <FaRegCommentAlt size={30} color={`${mode ? 'white' : 'black'}`} />
                             <p style={{ cursor: 'pointer', margin: '0px', fontSize: '30px', fontFamily: 'sans-serif' }}>Users</p>
-                        </div>
+                        </div> */}
                         <div onClick={() => navigate('/home')} style={{ display: 'flex', width: '100%', gap: '30px', justifyContent: 'center' }}>
                             <IoHomeOutline size={30} color={`${mode ? 'white' : 'black'}`} />
                             <p style={{ cursor: 'pointer', margin: '0px', fontSize: '30px', fontFamily: 'sans-serif' }}>Home</p>
@@ -209,7 +209,7 @@ export default function Guidelines() {
                                 <div className={style.date}>Date updated</div>
                                 <div className={style.status}>Status</div>
                                 <div className={style.link}>Link</div>
-                                {user == 'admin@gmail.com' && <div className={style.option}>Action</div>}
+                                {user == 'anas@onlycells.co.uk' && <div className={style.option}>Action</div>}
                             </div>
                             <div className={style.mobilecontent}>
                                 {
@@ -222,7 +222,7 @@ export default function Guidelines() {
                                                 </div>
                                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                                                     <p style={{ margin: '0px', fontFamily: 'sans-serif' }}>{item.status}</p>
-                                                    {user == 'admin@gmail.com' && <div onClick={() => deleteRecord(item._id)} className={style.option}>
+                                                    {user == 'anas@onlycells.co.uk' && <div onClick={() => deleteRecord(item._id)} className={style.option}>
                                                         <MdOutlineDelete size={20} color={`${mode ? 'white' : 'black'}`} />
                                                     </div>}
                                                 </div>
@@ -240,7 +240,7 @@ export default function Guidelines() {
                                             <div className={style.date}>{item.date}</div>
                                             <div className={style.status}>{item.status}</div>
                                             <a target='self' style={{ color: mode ? 'rgb(0, 255, 255)' : 'rgb(47, 47, 211)', textDecoration: 'none' }} className={style.link} href={item.url}>{item.url.substring(0, 26)} ...</a>
-                                            {user == 'admin@gmail.com' && <div onClick={() => deleteRecord(item._id)} className={style.option}>
+                                            {user == 'anas@onlycells.co.uk' && <div onClick={() => deleteRecord(item._id)} className={style.option}>
                                                 <MdOutlineDelete size={20} color={`${mode ? 'white' : 'black'}`} />
                                             </div>}
                                         </div>
@@ -250,15 +250,18 @@ export default function Guidelines() {
                             }
                         </div>
                         <div className={`${mode ? style.buttonsdivdark : style.buttonsdivlight}`}>
-                            {<span className={style.number}>
+                            <span className={style.number}>
                                 <p>Total <span style={{ fontWeight: 'bold' }}>{data.length}</span> guidelines</p>
-                            </span>}
+                            </span>
+                            {
+                                user == 'anas@onlycells.co.uk' && <>
                             <input type="file" accept="application/pdf" onChange={handleFileChange} />
                             {
                                 file != null &&
                                 <button onClick={handleUpload} disabled={uploading} className={`${mode ? style.btndark : style.btnlight}`}>
                                     {uploading ? 'Uploading...' : 'Add'}</button>
                             }
+                            </>}
                         </div>
                     </div>
                 </div>
